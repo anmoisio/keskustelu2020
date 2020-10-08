@@ -1,0 +1,48 @@
+Experiment: am/converse_fin
+Job ID: 55994349
+Task ID: 
+Host: csl36.int.triton.aalto.fi
+Start date: Thu Oct  8 13:29:50 EEST 2020
+Work directory: /scratch/work/moisioa3/keskustelu2020/experiments/am/converse_fin
+Temporary directory: /tmp/55994349
+
+Currently Loaded Modules:
+  1) GCCcore/6.4.0
+  2) binutils/2.28-GCCcore-6.4.0
+  3) GCC/6.4.0-2.28
+  4) openfst/1.6.6-GCC-6.4.0
+  5) OpenBLAS/0.2.20-GCC-6.4.0-2.28
+  6) CUDA/9.0.176
+  7) CUB/1.8.0
+  8) sctk/2.4.10
+  9) sph2pipe/2.5
+ 10) kaldi-2020/5968b4c-GCC-6.4.0-2.28-OPENBLAS
+
+ 
+
+tree-info exp/chain/tdnn7q_sp/tree 
+tree-info exp/chain/tdnn7q_sp/tree 
+fstdeterminizestar --use-log=true 
+fstpushspecial 
+fstminimizeencoded 
+fsttablecompose data/lang_test_word_fullvocab_nosp/L_disambig.fst data/lang_test_word_fullvocab_nosp/G.fst 
+fstisstochastic data/lang_test_word_fullvocab_nosp/tmp/LG.fst 
+-0.0280762 -0.029015
+[info]: LG not stochastic.
+fstcomposecontext --context-size=2 --central-position=1 --read-disambig-syms=data/lang_test_word_fullvocab_nosp/phones/disambig.int --write-disambig-syms=data/lang_test_word_fullvocab_nosp/tmp/disambig_ilabels_2_1.int data/lang_test_word_fullvocab_nosp/tmp/ilabels_2_1.7243 data/lang_test_word_fullvocab_nosp/tmp/LG.fst 
+fstisstochastic data/lang_test_word_fullvocab_nosp/tmp/CLG_2_1.fst 
+-0.0280762 -0.029015
+[info]: CLG not stochastic.
+make-h-transducer --disambig-syms-out=exp/chain/tdnn7q_sp/graph_word_fullvocab_nosp/disambig_tid.int --transition-scale=1.0 data/lang_test_word_fullvocab_nosp/tmp/ilabels_2_1 exp/chain/tdnn7q_sp/tree exp/chain/tdnn7q_sp/final.mdl 
+fstminimizeencoded 
+fstdeterminizestar --use-log=true 
+fsttablecompose exp/chain/tdnn7q_sp/graph_word_fullvocab_nosp/Ha.fst data/lang_test_word_fullvocab_nosp/tmp/CLG_2_1.fst 
+fstrmsymbols exp/chain/tdnn7q_sp/graph_word_fullvocab_nosp/disambig_tid.int 
+fstrmepslocal 
+fstisstochastic exp/chain/tdnn7q_sp/graph_word_fullvocab_nosp/HCLGa.fst 
+0.338759 -0.116229
+HCLGa is not stochastic
+add-self-loops --self-loop-scale=1.0 --reorder=true exp/chain/tdnn7q_sp/final.mdl exp/chain/tdnn7q_sp/graph_word_fullvocab_nosp/HCLGa.fst 
+fstisstochastic exp/chain/tdnn7q_sp/graph_word_fullvocab_nosp/HCLG.fst 
+0.155103 -0.116211
+[info]: final HCLG is not stochastic.

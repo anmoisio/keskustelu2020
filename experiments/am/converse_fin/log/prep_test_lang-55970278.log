@@ -1,0 +1,162 @@
+Experiment: kaldi-am-word/converse_fin
+Job ID: 55970278
+Task ID: 
+Host: csl41.int.triton.aalto.fi
+Start date: Wed Oct  7 10:59:07 EEST 2020
+Work directory: /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin
+Temporary directory: /tmp/55970278
+
+Currently Loaded Modules:
+  1) GCCcore/6.4.0
+  2) binutils/2.28-GCCcore-6.4.0
+  3) GCC/6.4.0-2.28
+  4) openfst/1.6.6-GCC-6.4.0
+  5) OpenBLAS/0.2.20-GCC-6.4.0-2.28
+  6) CUDA/9.0.176
+  7) CUB/1.8.0
+  8) sctk/2.4.10
+  9) sph2pipe/2.5
+ 10) kaldi-2020/5968b4c-GCC-6.4.0-2.28-OPENBLAS
+
+ 
+
+/scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp
+/scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/lm_tmp/oovs.txt :: /scratch/work/moisioa3/conv_lm/experiments/4gram/ip/kn-ip-dsp-web.arpa.gz /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/words.txt
+/scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/G.fst :: /scratch/work/moisioa3/conv_lm/experiments/4gram/ip/kn-ip-dsp-web.arpa.gz
+arpa2fst - 
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:94) Reading \data\ section.
+LOG (arpa2fst[5.5.681~1-5968b]:HeaderAvailable():arpa-lm-compiler.cc:300) Reverting to slower state tracking because model is large: 4-gram with symbols up to 2427253
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \1-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \2-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \3-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \4-grams: section.
+remove_oovs.pl: removed 13409308 lines.
+utils/validate_lang.pl /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp
+Checking existence of separator file
+separator file /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/subword_separator.txt is empty or does not exist, deal in word case.
+Checking /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones.txt ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones.txt is OK
+
+Checking words.txt: #0 ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/words.txt is OK
+
+Checking disjoint: silence.txt, nonsilence.txt, disambig.txt ...
+--> silence.txt and nonsilence.txt are disjoint
+--> silence.txt and disambig.txt are disjoint
+--> disambig.txt and nonsilence.txt are disjoint
+--> disjoint property is OK
+
+Checking sumation: silence.txt, nonsilence.txt, disambig.txt ...
+--> found no unexplainable phones in phones.txt
+
+Checking /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/context_indep.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 15 entry/entries in /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/context_indep.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/context_indep.int corresponds to /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/context_indep.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/context_indep.csl corresponds to /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/context_indep.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/context_indep.{txt, int, csl} are OK
+
+Checking /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/nonsilence.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 92 entry/entries in /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/nonsilence.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/nonsilence.int corresponds to /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/nonsilence.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/nonsilence.csl corresponds to /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/nonsilence.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/nonsilence.{txt, int, csl} are OK
+
+Checking /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/silence.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 15 entry/entries in /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/silence.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/silence.int corresponds to /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/silence.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/silence.csl corresponds to /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/silence.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/silence.{txt, int, csl} are OK
+
+Checking /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/optional_silence.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 1 entry/entries in /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/optional_silence.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/optional_silence.int corresponds to /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/optional_silence.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/optional_silence.csl corresponds to /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/optional_silence.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/optional_silence.{txt, int, csl} are OK
+
+Checking /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/disambig.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 4 entry/entries in /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/disambig.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/disambig.int corresponds to /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/disambig.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/disambig.csl corresponds to /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/disambig.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/disambig.{txt, int, csl} are OK
+
+Checking /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/roots.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 26 entry/entries in /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/roots.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/roots.int corresponds to /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/roots.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/roots.{txt, int} are OK
+
+Checking /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/sets.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 26 entry/entries in /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/sets.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/sets.int corresponds to /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/sets.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/sets.{txt, int} are OK
+
+Checking /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/extra_questions.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 11 entry/entries in /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/extra_questions.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/extra_questions.int corresponds to /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/extra_questions.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/extra_questions.{txt, int} are OK
+
+Checking /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/word_boundary.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 107 entry/entries in /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/word_boundary.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/word_boundary.int corresponds to /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/word_boundary.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/word_boundary.{txt, int} are OK
+
+Checking optional_silence.txt ...
+--> reading /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/optional_silence.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/optional_silence.txt is OK
+
+Checking disambiguation symbols: #0 and #1
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/disambig.txt has "#0" and "#1"
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/disambig.txt is OK
+
+Checking topo ...
+
+Checking word_boundary.txt: silence.txt, nonsilence.txt, disambig.txt ...
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/word_boundary.txt doesn't include disambiguation symbols
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/word_boundary.txt is the union of nonsilence.txt and silence.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/word_boundary.txt is OK
+
+Checking word-level disambiguation symbols...
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/phones/wdisambig.txt exists (newer prepare_lang.sh)
+Checking word_boundary.int and disambig.int
+--> generating a 21 word/subword sequence
+--> resulting phone sequence from L.fst corresponds to the word sequence
+--> L.fst is OK
+--> generating a 23 word/subword sequence
+--> resulting phone sequence from L_disambig.fst corresponds to the word sequence
+--> L_disambig.fst is OK
+
+Checking /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/oov.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 1 entry/entries in /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/oov.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/oov.int corresponds to /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/oov.txt
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/oov.{txt, int} are OK
+
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/L.fst is olabel sorted
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/L_disambig.fst is olabel sorted
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/G.fst is ilabel sorted
+--> /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/G.fst has 8433914 states
+--> utils/lang/check_g_properties.pl successfully validated /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp/G.fst
+--> utils/lang/check_g_properties.pl succeeded.
+--> SUCCESS [validating lang directory /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin/data/lang_test_word_nosp]

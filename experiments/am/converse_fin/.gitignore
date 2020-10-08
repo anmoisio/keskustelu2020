@@ -1,0 +1,6 @@
+exp
+data
+mfcc
+log/mfcc-am-train
+log/mfcc-devel
+log/mfcc-eval

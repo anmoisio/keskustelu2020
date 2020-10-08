@@ -1,0 +1,46 @@
+Experiment: kaldi-am-word/converse_fin
+Job ID: 55980097
+Task ID: 
+Host: csl39.int.triton.aalto.fi
+Start date: Wed Oct  7 17:30:31 EEST 2020
+Work directory: /scratch/work/moisioa3/keskustelu2020/experiments/kaldi-am-word/converse_fin
+Temporary directory: /tmp/55980097
+
+Currently Loaded Modules:
+  1) GCCcore/6.4.0
+  2) binutils/2.28-GCCcore-6.4.0
+  3) GCC/6.4.0-2.28
+  4) openfst/1.6.6-GCC-6.4.0
+  5) OpenBLAS/0.2.20-GCC-6.4.0-2.28
+  6) CUDA/9.0.176
+  7) CUB/1.8.0
+  8) sctk/2.4.10
+  9) sph2pipe/2.5
+ 10) kaldi-2020/5968b4c-GCC-6.4.0-2.28-OPENBLAS
+
+ 
+
+tree-info exp/tri3b_mmi_b0.1/tree 
+tree-info exp/tri3b_mmi_b0.1/tree 
+fstminimizeencoded 
+fstpushspecial 
+fstdeterminizestar --use-log=true 
+fsttablecompose data/lang_test_word/L_disambig.fst data/lang_test_word/G.fst 
+WARNING (fstpushspecial[5.5.681~1-5968b]:Iterate():push-special.cc:182) push-special: finished 200 iterations without converging.  Output will be inaccurate.
+fstisstochastic data/lang_test_word/tmp/LG.fst 
+-0.0131308 -0.0189771
+[info]: LG not stochastic.
+fstcomposecontext --context-size=3 --central-position=1 --read-disambig-syms=data/lang_test_word/phones/disambig.int --write-disambig-syms=data/lang_test_word/tmp/disambig_ilabels_3_1.int data/lang_test_word/tmp/ilabels_3_1.68307 data/lang_test_word/tmp/LG.fst 
+fstisstochastic data/lang_test_word/tmp/CLG_3_1.fst 
+0 -0.0189771
+[info]: CLG not stochastic.
+make-h-transducer --disambig-syms-out=exp/tri3b_mmi_b0.1/graph_word_trainvocab/disambig_tid.int --transition-scale=1.0 data/lang_test_word/tmp/ilabels_3_1 exp/tri3b_mmi_b0.1/tree exp/tri3b_mmi_b0.1/final.mdl 
+fstdeterminizestar --use-log=true 
+fstminimizeencoded 
+fsttablecompose exp/tri3b_mmi_b0.1/graph_word_trainvocab/Ha.fst data/lang_test_word/tmp/CLG_3_1.fst 
+fstrmsymbols exp/tri3b_mmi_b0.1/graph_word_trainvocab/disambig_tid.int 
+fstrmepslocal 
+fstisstochastic exp/tri3b_mmi_b0.1/graph_word_trainvocab/HCLGa.fst 
+0.349944 -0.0482759
+HCLGa is not stochastic
+add-self-loops --self-loop-scale=0.1 --reorder=true exp/tri3b_mmi_b0.1/final.mdl exp/tri3b_mmi_b0.1/graph_word_trainvocab/HCLGa.fst 

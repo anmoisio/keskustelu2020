@@ -1,0 +1,5 @@
+#!/bin/sed -f
+s:\[reject\]::g
+s:\[oov\]::g
+s:\[laugh\]::g
+s:-: :g

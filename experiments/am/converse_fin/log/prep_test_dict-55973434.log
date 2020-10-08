@@ -1,0 +1,20 @@
+Experiment: am/converse_fin
+Job ID: 55973434
+Task ID: 
+Host: ivb17.int.triton.aalto.fi
+Start date: Wed Oct  7 12:19:19 EEST 2020
+Work directory: /scratch/work/moisioa3/keskustelu2020/experiments/am/converse_fin
+Temporary directory: /tmp/55973434
+
+Currently Loaded Modules:
+  1) anaconda3/latest                    3) srilm/default
+  2) speech-scripts/2016.05.24-b928230
+
+ 
+
+data/local/dict_test_nosp/vocab.txt :: /scratch/work/moisioa3/conv_lm/experiments/4gram/ip/kn-ip-dsp-web.arpa.gz
+data/local/dict_test_nosp/lexicon.txt :: data/local/dict_test_nosp/vocab.txt
+data/local/dict_test_nosp/nonsilence_phones.txt :: data/local/dict_test_nosp/lexicon.txt
+data/local/dict_test_nosp/silence_phones.txt
+data/local/dict_test_nosp/optional_silence.txt
+data/local/dict_test_nosp/extra_questions.txt :: data/local/dict_test_nosp/<non>silence_phones.txt
