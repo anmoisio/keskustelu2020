@@ -4,3 +4,5 @@ mfcc
 log/mfcc-am-train
 log/mfcc-devel
 log/mfcc-eval
+0007_voxceleb_v*
+extractor_psmit

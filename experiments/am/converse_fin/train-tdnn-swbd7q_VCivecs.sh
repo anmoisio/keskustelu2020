@@ -52,7 +52,7 @@ echo "$0 $@"  # Print the command line for logging
 
 suffix=
 $speed_perturb && suffix=_sp
-dir=exp/chain/tdnn${affix}${suffix}_noivecs
+dir=exp/chain/tdnn${affix}${suffix}_VCivecs
 
 if ! cuda-compiled; then
   cat <<EOF && exit 1
@@ -80,12 +80,13 @@ output_opts="l2-regularize=0.002"
 mkdir -p $dir/configs
 
 cat <<EOF > $dir/configs/network.xconfig
+input dim=100 name=ivector
 input dim=40 name=input
 
 # please note that it is important to have input layer with the name=input
 # as the layer immediately preceding the fixed-affine-layer to enable
 # the use of short notation for the descriptor
-fixed-affine-layer name=lda input=Append(-1,0,1) affine-transform-file=$dir/configs/lda.mat
+fixed-affine-layer name=lda input=Append(-1,0,1,ReplaceIndex(ivector, t, 0)) affine-transform-file=$dir/configs/lda.mat
 
 # the first splicing is moved before the lda layer, so no splicing here
 relu-batchnorm-dropout-layer name=tdnn1 $affine_opts dim=1536
@@ -116,6 +117,7 @@ steps/nnet3/xconfig_to_configs.py --xconfig-file $dir/configs/network.xconfig --
 
   steps/nnet3/chain/train.py --stage $train_stage \
     --cmd "$train_cmd" \
+    --feat.online-ivector-dir exp/nnet3/ivectors_${train_set}_hires_voxceleb \
     --feat.cmvn-opts "--norm-means=false --norm-vars=false" \
     --chain.xent-regularize $xent_regularize \
     --chain.leaky-hmm-coefficient 0.1 \
@@ -137,7 +139,7 @@ steps/nnet3/xconfig_to_configs.py --xconfig-file $dir/configs/network.xconfig --
     --trainer.optimization.final-effective-lrate 0.000025 \
     --trainer.max-param-change 2.0 \
     --cleanup.remove-egs $remove_egs \
-    --feat-dir data/${train_set}_hires \
+    --feat-dir data/${train_set}_hires_voxceleb  \
     --tree-dir $treedir \
     --lat-dir exp/tri3b_mmi_b0.1_lats$suffix \
     --dir $dir  || exit 1;

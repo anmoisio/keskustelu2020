@@ -11,5 +11,5 @@ module list
 . ./path.sh
 . ./utils/parse_options.sh
 
-local/prepare_train_dict.sh
+local/prepare_dict_char.sh
 

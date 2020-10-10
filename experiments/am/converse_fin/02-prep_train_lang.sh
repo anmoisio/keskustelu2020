@@ -20,7 +20,8 @@ echo
 # training lang dir
 lang=lang_nosp
 
-utils/prepare_lang.sh data/local/dict_nosp \
+utils/prepare_lang.sh \
+  data/local/dict_nosp \
   "[oov]" \
   data/local/lang_tmp_nosp \
   data/$lang

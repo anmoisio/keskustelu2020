@@ -14,15 +14,14 @@ cd "${EXPT_SCRIPT_DIR}"
 
 decode_sets=devel
 
-dir=exp/chain/tdnn7q_sp
+dir=exp/chain/tdnn7q_sp_noivecs
 
 # --stage 3 for just scoring
 for decode_set in $decode_sets; do
     steps/nnet3/decode.sh --nj 8 --cmd "$decode_cmd" \
         --acwt 1.0 \
         --post-decode-acwt 10.0 \
-        --online-ivector-dir exp/nnet3/ivectors_${decode_set}_hires \
-        $dir/graph_morph_nosp \
+        $dir/graph_word_fullvocab \
         data/${decode_set}_hires \
-        $dir/decode_${decode_set}_morph_nosp
+        $dir/decode_${decode_set}_word_fullvocab
 done
