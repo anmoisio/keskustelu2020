@@ -1,4 +1,4 @@
-exp
+
 data
 mfcc
 log/mfcc-am-train
@@ -6,3 +6,15 @@ log/mfcc-devel
 log/mfcc-eval
 0007_voxceleb_v*
 extractor_psmit
+
+
+exp/*
+!exp/chain
+exp/chain/*
+!exp/chain/tdnn7q_sp
+exp/chain/tdnn7q_sp/*
+!exp/chain/tdnn7q_sp/decode*
+exp/chain/tdnn7q_sp/decode*/*
+!exp/chain/tdnn7q_sp/decode*/scoring_kaldi
+exp/chain/tdnn7q_sp/decode*/scoring_kaldi/*
+!exp/chain/tdnn7q_sp/decode*/scoring_kaldi/best_wer
