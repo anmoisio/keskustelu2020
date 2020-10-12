@@ -1,0 +1,76 @@
+Experiment: am/converse_fin
+Job ID: 56047745
+Task ID: 
+Host: csl40.int.triton.aalto.fi
+Start date: Sat Oct 10 15:54:17 EEST 2020
+Work directory: /scratch/work/moisioa3/conv_lm/experiments/am/converse_fin
+Temporary directory: /tmp/56047745
+
+Currently Loaded Modules:
+  1) GCCcore/6.4.0
+  2) binutils/2.28-GCCcore-6.4.0
+  3) GCC/6.4.0-2.28
+  4) openfst/1.6.6-GCC-6.4.0
+  5) OpenBLAS/0.2.20-GCC-6.4.0-2.28
+  6) CUDA/9.0.176
+  7) CUB/1.8.0
+  8) sctk/2.4.10
+  9) sph2pipe/2.5
+ 10) kaldi-2020/5968b4c-GCC-6.4.0-2.28-OPENBLAS
+
+ 
+
+steps/get_prons.sh --cmd utils/slurm.pl --mem 3G --time 1:00:00 data/am-train data/lang_test_morph_nosp exp/chain/tdnn7q_sp/decode_devel_morph_nosp
+steps/get_prons.sh: exp/chain/tdnn7q_sp/decode_devel_morph_nosp/lat.1.gz exists, so starting from lattices.
+steps/get_prons.sh: done writing prons to exp/chain/tdnn7q_sp/decode_devel_morph_nosp/prons.*.gz, silence counts in 
+steps/get_prons.sh: exp/chain/tdnn7q_sp/decode_devel_morph_nosp/sil_counts_nowb.txt and pronunciation counts in 
+steps/get_prons.sh: exp/chain/tdnn7q_sp/decode_devel_morph_nosp/pron_counts.{int,txt}
+steps/get_prons.sh: ... and also in exp/chain/tdnn7q_sp/decode_devel_morph_nosp/pron_counts_nowb.txt
+Checking data/local/dict_morph_nosp/silence_phones.txt ...
+--> reading data/local/dict_morph_nosp/silence_phones.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp/silence_phones.txt is OK
+
+Checking data/local/dict_morph_nosp/optional_silence.txt ...
+--> reading data/local/dict_morph_nosp/optional_silence.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp/optional_silence.txt is OK
+
+Checking data/local/dict_morph_nosp/nonsilence_phones.txt ...
+--> reading data/local/dict_morph_nosp/nonsilence_phones.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp/nonsilence_phones.txt is OK
+
+Checking disjoint: silence_phones.txt, nonsilence_phones.txt
+--> disjoint property is OK.
+
+Checking data/local/dict_morph_nosp/lexicon.txt
+--> reading data/local/dict_morph_nosp/lexicon.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp/lexicon.txt is OK
+
+Checking data/local/dict_morph_nosp/lexiconp.txt
+--> reading data/local/dict_morph_nosp/lexiconp.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp/lexiconp.txt is OK
+
+Checking lexicon pair data/local/dict_morph_nosp/lexicon.txt and data/local/dict_morph_nosp/lexiconp.txt
+--> lexicon pair data/local/dict_morph_nosp/lexicon.txt and data/local/dict_morph_nosp/lexiconp.txt match
+
+Checking data/local/dict_morph_nosp/extra_questions.txt ...
+--> reading data/local/dict_morph_nosp/extra_questions.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp/extra_questions.txt is OK
+--> SUCCESS [validating dictionary directory data/local/dict_morph_nosp]
+
+utils/dict_dir_add_pronprobs.sh: number of lines differs from data/local/dict_morph/lexicon.txt 42700 vs data/local/dict_morph/lexiconp.txt 56038
+Probably something went wrong (e.g. input prons were generated from a different lexicon
+than data/local/dict_morph_nosp, or you used pron_counts.txt when you should have used pron_counts_nowb.txt
+or something else.  Make sure the prons in data/local/dict_morph_nosp/lexicon.txt exp/chain/tdnn7q_sp/decode_devel_morph_nosp/pron_counts.txt look
+the same.
