@@ -69,14 +69,14 @@ test_sets="devel eval"
 #   $train_cmd exp/nnet3/ivectors_${data}_hires_voxceleb/log/lda.log \
 #     ivector-compute-lda --total-covariance-factor=0.0 --dim=$lda_dim \
 #     "ark:ivector-subtract-global-mean scp:exp/nnet3/ivectors_${data}_hires_voxceleb/ivector.scp ark:- |" \
-#     ark:data/${data}/utt2spk exp/nnet3/ivectors_${data}_hires_voxceleb/transform.mat || exit 1;
+#     ark:data/${data}/utt2spk exp/nnet3/ivectors_${data}_hires_voxceleb/lda.mat || exit 1;
 # done
 
 # apply LDA and concatenate the i-vectors to features
-for data in devel; do
+for data in ${train_set}_sp ${test_sets}; do
   ivecdir=exp/nnet3/ivectors_${data}_hires_voxceleb
   # transform-feats \
-  #   ${ivecdir}/transform.mat \
+  #   ${ivecdir}/lda.mat \
   #   scp:${ivecdir}/ivector.scp \
   #   ark,scp:${ivecdir}/ivector_lda.ark,${ivecdir}/ivector_lda.scp
 
@@ -85,49 +85,13 @@ for data in devel; do
   # new number of dimensions
   # feat-to-dim scp:${ivecdir}/ivector_lda.scp -
 
-  # append-vector-to-feats \
-  #   scp:data/${data}_hires_voxceleb/feats.scp \
-  #   scp:${ivecdir}/ivector_lda.scp \
-  #   ark,scp:data/${data}_hires_voxceleb/feats_ivec.ark,data/${data}_hires_voxceleb/feats_ivec.scp
-
-  # convert matrix to vector
-  # copy-matrix --binary=false scp:${ivecdir}/ivector_lda.scp ark,t:- | \
-  #   copy-vector ark,t:- ark,scp:${ivecdir}/ivector_lda_vec.ark,${ivecdir}/ivector_lda_vec.scp
-
-  # copy-matrix --binary=false scp:${ivecdir}/ivector_lda.scp ark,t:- | \
-  #   copy-vector ark,t:- ark,scp:${ivecdir}/ivector_lda_converted.ark,${ivecdir}/ivector_lda_converted.scp
-
-  # append-vector-to-feats \
-  #   scp:data/${data}_hires_voxceleb/feats.scp \
-  #   scp:${ivecdir}/ivector_lda_converted.scp \
-  #   ark,scp:data/${data}_hires_voxceleb/feats_ivec.ark,data/${data}_hires_voxceleb/feats_ivec.scp
-    
-  # paste-feats \
-  #   scp:data/${data}_hires_voxceleb/feats.scp \
-  #   scp:${ivecdir}/ivector_lda.scp \
-  #   ark,scp:data/${data}_hires_voxceleb/feats_ivec.ark,data/${data}_hires_voxceleb/feats_ivec.scp
-
-  # echo "dim:"
-  # feat-to-dim scp:exp/nnet3/ivectors_devel_hires_voxceleb/ivector_lda_converted.scp -
-
-  # local/dump_with_ivec.sh --cmd "$train_cmd" \
-  #   data/${data}_hires_voxceleb \
-  #   exp/nnet3/ivectors_${data}_hires_voxceleb/mean.vec \
-  #   exp/nnet3/ivectors_${data}_hires_voxceleb/transform.mat \
-  #   exp/nnet3/ivectors_${data}_hires_voxceleb \
-  #   exp/nnet3/ivectors_${data}_hires_voxceleb/log \
-  #   exp/nnet3/ivectors_${data}_hires_voxceleb/dump
-
   local/dump_with_ivec.sh --cmd "$train_cmd" \
     --nj 30 \
-    data/${data}/feats.scp \
-    mfcc/cmvn_${data}.ark \
+    data/${data}_hires \
+    data/${data}_hires/data/cmvn_${data}_hires.ark \
     ${ivecdir}/mean.vec \
-    ${ivecdir}/transform.mat \
+    ${ivecdir}/lda.mat \
     ${ivecdir} \
-    ${ivecdir}/dump_feats \
-    ${ivecdir}/dump2
+    ${ivecdir}/log_feats \
+    ${ivecdir}/feat_dump
 done
-
-    # local/dump_with_ivec.sh --cmd "$train_cmd" --nj 32 --do_delta $do_delta \
-    #     data/${train_set}/feats.scp data/${train_set}/cmvn.ark data/${train_set}/ivectors/mean.vec data/${train_set}/ivectors/lda-transform.mat data/${train_set}/ivectors exp/dump_feats/${train_set} ${feat_tr_dir}
