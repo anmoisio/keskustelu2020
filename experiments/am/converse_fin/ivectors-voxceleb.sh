@@ -102,11 +102,32 @@ for data in devel; do
   #   scp:${ivecdir}/ivector_lda_converted.scp \
   #   ark,scp:data/${data}_hires_voxceleb/feats_ivec.ark,data/${data}_hires_voxceleb/feats_ivec.scp
     
-  paste-feats \
-    scp:data/${data}_hires_voxceleb/feats.scp \
-    scp:${ivecdir}/ivector_lda.scp \
-    ark,scp:data/${data}_hires_voxceleb/feats_ivec.ark,data/${data}_hires_voxceleb/feats_ivec.scp
+  # paste-feats \
+  #   scp:data/${data}_hires_voxceleb/feats.scp \
+  #   scp:${ivecdir}/ivector_lda.scp \
+  #   ark,scp:data/${data}_hires_voxceleb/feats_ivec.ark,data/${data}_hires_voxceleb/feats_ivec.scp
 
   # echo "dim:"
   # feat-to-dim scp:exp/nnet3/ivectors_devel_hires_voxceleb/ivector_lda_converted.scp -
+
+  # local/dump_with_ivec.sh --cmd "$train_cmd" \
+  #   data/${data}_hires_voxceleb \
+  #   exp/nnet3/ivectors_${data}_hires_voxceleb/mean.vec \
+  #   exp/nnet3/ivectors_${data}_hires_voxceleb/transform.mat \
+  #   exp/nnet3/ivectors_${data}_hires_voxceleb \
+  #   exp/nnet3/ivectors_${data}_hires_voxceleb/log \
+  #   exp/nnet3/ivectors_${data}_hires_voxceleb/dump
+
+  local/dump_with_ivec.sh --cmd "$train_cmd" \
+    --nj 30 \
+    data/${data}/feats.scp \
+    mfcc/cmvn_${data}.ark \
+    ${ivecdir}/mean.vec \
+    ${ivecdir}/transform.mat \
+    ${ivecdir} \
+    ${ivecdir}/dump_feats \
+    ${ivecdir}/dump2
 done
+
+    # local/dump_with_ivec.sh --cmd "$train_cmd" --nj 32 --do_delta $do_delta \
+    #     data/${train_set}/feats.scp data/${train_set}/cmvn.ark data/${train_set}/ivectors/mean.vec data/${train_set}/ivectors/lda-transform.mat data/${train_set}/ivectors exp/dump_feats/${train_set} ${feat_tr_dir}
