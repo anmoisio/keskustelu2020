@@ -22,6 +22,9 @@ test_sets="devel eval"
 
 # high-resolution features using the MFCC configs that were
 # used to train VoxCeleb i-vector extractor
+# Note: different MFCCs are used for extracting i-vectors (these ones)
+# and training/decoding. Because we use pretrained VoxCeleb i-vec extractor,
+# we need the MFCCs with matching parameters (0007_voxceleb_v1_1a/conf/mfcc.conf)
 if [ -f data/${train_set}_hires_voxceleb/feats.scp ]; then
   echo "$0: data/${train_set}_sp_hires_voxceleb/feats.scp already exists."
   echo " ... Please either remove it, or rerun this script with stage > 2."
@@ -46,6 +49,14 @@ for datadir in ${train_set}_sp ${test_sets}; do
     --mfcc-config 0007_voxceleb_v1_1a/conf/mfcc.conf \
     --nj $nj --cmd "$train_cmd" \
     data/${datadir}_hires_voxceleb
+
+  utils/fix_data_dir.sh \
+    data/${datadir}_hires_voxceleb
+
+  sid/compute_vad_decision.sh --nj $nj --cmd "$train_cmd" \
+    --vad-config 0007_voxceleb_v1_1a/conf/vad.conf \
+    data/${datadir}_hires_voxceleb \
+    data/make_vad 
 
   utils/fix_data_dir.sh \
     data/${datadir}_hires_voxceleb
