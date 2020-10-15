@@ -1,7 +1,7 @@
 #!/bin/bash -e
 #SBATCH --partition batch
 #SBATCH --time=8:00:00
-#SBATCH --mem=53G
+#SBATCH --mem=93G
 
 source ../../../scripts/run-expt.sh "${0}"
 
@@ -13,7 +13,11 @@ module list
 . ./path.sh
 . ./utils/parse_options.sh
 
-dir=exp/chain/tdnn7q_sp
+dir=exp/chain/tdnn7q_sp_vcivecs_lda100
+
+utils/lang/check_phones_compatible.sh \
+    data/lang_chain/phones.txt \
+    data/lang_test_word_fullvocab/phones.txt
 
 
 # 10GB mem
@@ -36,12 +40,16 @@ dir=exp/chain/tdnn7q_sp
 #     $dir \
 #     $dir/graph_word_fullvocab || exit 1;
 
-utils/lang/check_phones_compatible.sh \
-    data/lang_chain/phones.txt \
-    data/lang_test_morph_nosp/phones.txt
+
+
+# utils/mkgraph.sh \
+#     --self-loop-scale 1.0 \
+#     data/lang_test_morph_nosp \
+#     $dir \
+#     $dir/graph_morph_nosp || exit 1;
 
 utils/mkgraph.sh \
     --self-loop-scale 1.0 \
-    data/lang_test_morph_nosp \
+    data/lang_test_word_fullvocab \
     $dir \
-    $dir/graph_morph_nosp || exit 1;
+    $dir/graph_word_fullvocab|| exit 1;

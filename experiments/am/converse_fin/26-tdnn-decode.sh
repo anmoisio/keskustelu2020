@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -ex
 
 source ../../../scripts/run-expt.sh "${0}"
 

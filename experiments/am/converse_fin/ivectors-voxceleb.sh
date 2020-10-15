@@ -56,24 +56,22 @@ test_sets="devel eval"
 #       exp/nnet3${nnet3_affix}/ivectors_${data}_hires_voxceleb 
 # done
 
-# for data in ${train_set}_sp ${test_sets}; do
-#   # Compute the mean vector for centering the evaluation i-vectors.
-#   $train_cmd exp/ivectors_train/log/compute_mean.log \
-#     ivector-mean scp:exp/nnet3${nnet3_affix}/ivectors_${data}_hires_voxceleb/ivector.scp \
-#     exp/nnet3${nnet3_affix}/ivectors_${data}_hires_voxceleb/mean.vec || exit 1;
-# done
+for data in ${train_set}_sp ${test_sets}; do
+  # Compute the mean vector for centering the evaluation i-vectors.
+  $train_cmd exp/ivectors_train/log/compute_mean.log \
+    ivector-mean scp:exp/nnet3${nnet3_affix}/ivectors_${data}_hires_voxceleb/ivector.scp \
+    exp/nnet3${nnet3_affix}/ivectors_${data}_hires_voxceleb/mean.vec || exit 1;
+done
 
 # # Compute LDA to decrease the dimensionality
-# lda_dim=200
-# for data in ${train_set}_sp ${test_sets}; do
-#   $train_cmd exp/nnet3/ivectors_${data}_hires_voxceleb/log/lda.log \
-#     ivector-compute-lda --total-covariance-factor=0.0 --dim=$lda_dim \
-#     "ark:ivector-subtract-global-mean scp:exp/nnet3/ivectors_${data}_hires_voxceleb/ivector.scp ark:- |" \
-#     ark:data/${data}/utt2spk exp/nnet3/ivectors_${data}_hires_voxceleb/lda.mat || exit 1;
-# done
-
-# apply LDA and concatenate the i-vectors to features
+lda_dim=100
 for data in ${train_set}_sp ${test_sets}; do
+  $train_cmd exp/nnet3/ivectors_${data}_hires_voxceleb/log/lda$lda_dim.log \
+    ivector-compute-lda --total-covariance-factor=0.0 --dim=$lda_dim \
+    "ark:ivector-subtract-global-mean scp:exp/nnet3/ivectors_${data}_hires_voxceleb/ivector.scp ark:- |" \
+    ark:data/${data}/utt2spk exp/nnet3/ivectors_${data}_hires_voxceleb/lda$lda_dim.mat || exit 1;
+
+  # apply LDA and concatenate the i-vectors to features
   ivecdir=exp/nnet3/ivectors_${data}_hires_voxceleb
   # transform-feats \
   #   ${ivecdir}/lda.mat \
@@ -86,12 +84,14 @@ for data in ${train_set}_sp ${test_sets}; do
   # feat-to-dim scp:${ivecdir}/ivector_lda.scp -
 
   local/dump_with_ivec.sh --cmd "$train_cmd" \
-    --nj 30 \
+    --nj 8 \
     data/${data}_hires \
     data/${data}_hires/data/cmvn_${data}_hires.ark \
     ${ivecdir}/mean.vec \
-    ${ivecdir}/lda.mat \
+    ${ivecdir}/lda$lda_dim.mat \
     ${ivecdir} \
-    ${ivecdir}/log_feats \
-    ${ivecdir}/feat_dump
+    ${ivecdir}/log_feats_lda$lda_dim \
+    ${ivecdir}/feat_dump_lda$lda_dim
+
+  cp data/${data}/utt2spk ${ivecdir}/feat_dump_lda$lda_dim/
 done
