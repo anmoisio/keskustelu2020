@@ -1,7 +1,7 @@
 #!/bin/bash -e
 #SBATCH --partition batch
-#SBATCH --time=8:00:00
-#SBATCH --mem=93G
+#SBATCH --time=2:00:00
+#SBATCH --mem=38G
 
 source ../../../scripts/run-expt.sh "${0}"
 
@@ -13,7 +13,7 @@ module list
 . ./path.sh
 . ./utils/parse_options.sh
 
-dir=exp/chain/tdnn7q_sp_vcivecs_lda200_vad
+dir=exp/chain/tdnn7q_sp_vcxvecs_lda200_vad
 
 utils/lang/check_phones_compatible.sh \
     data/lang_chain/phones.txt \

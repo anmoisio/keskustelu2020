@@ -11,25 +11,24 @@ nj=1
 verbose=0
 compress=true
 write_utt2num_frames=true
+scaleup=true
 
-echo "$0 $@"  # Print the command line for logging
-[ -f ./path.sh ] && . ./path.sh
-. parse_options.sh || exit 1;
+. utils/parse_options.sh
 
-if [ $# != 6 ]; then
-    echo "Usage: $0 <datadir> <meanvec> <lda-transform> <ivecdir> <logdir> <dumpdir>"
+
+if [ $# != 7 ]; then
+    echo "Usage: $0 <datadir> <cmvn-ark> <mean.vec> <lda-transform> <xvecdir> <logdir> <dumpdir>"
     exit 1;
 fi
 
 datadir=$1
-meanvec=$2
-ldatrans=$3
-ivecdir=$4
-ivecscp=$ivecdir/ivector.scp
-logdir=$5
-dumpdir=$6
-
-# sdata=$datadir/split$nj
+cmvnark=$2
+meanvec=$3
+ldatrans=$4
+xvecdir=$5
+xvecscp=$xvecdir/xvector.scp
+logdir=$6
+dumpdir=$7
 
 mkdir -p $logdir
 mkdir -p $dumpdir
@@ -48,36 +47,35 @@ else
     write_num_frames_opt=
 fi
 
-# split scp file and ivec 
-# split_scps=""
-# for n in $(seq $nj); do
-#     split_scps="$split_scps $logdir/feats.$n.scp"
-# done
-# utils/split_scp.pl $datadir/feats.scp $split_scps || exit 1;
+# split scp file and xvec 
+split_scps=""
+for n in $(seq $nj); do
+    split_scps="$split_scps $logdir/feats.$n.scp"
+done
+utils/split_scp.pl ${datadir}/feats.scp $split_scps || exit 1;
 
-# for n in $(seq $nj); do
-#     utils/filter_scp.pl $logdir/feats.$n.scp $ivecscp > $logdir/ivecs.$n.scp
-# done
+for n in $(seq $nj); do
+    utils/filter_scp.pl $logdir/feats.$n.scp $xvecscp > $logdir/xvecs.$n.scp
+done
 
-
-
+#Prepare xvec-string:
 # dump features
 if ${do_delta};then
     $cmd JOB=1:$nj $logdir/dump_feature.JOB.log \
-        apply-cmvn --norm-vars=true $cvmnark scp:$logdir/feats.JOB.scp ark:- \| \
+        apply-cmvn --norm-vars=true --utt2spk=ark:$datadir/utt2spk ark:$cmvnark \
+        scp:$logdir/feats.JOB.scp ark:- \| \
         add-deltas ark:- ark:- \| \
-        append-vector-to-feats ark:- "ark:ivector-subtract-global-mean $meanvec scp:$logdir/ivecs.JOB.scp ark:- | transform-vec $ldatrans ark:- ark:- | ivector-normalize-length --scaleup=false ark:- ark:- |" ark:- \| \
+        append-vector-to-feats ark:- "ark:ivector-subtract-global-mean $meanvec scp:$logdir/xvecs.JOB.scp ark:- | transform-vec $ldatrans ark:- ark:- | ivector-normalize-length --scaleup=$scaleup ark:- ark:- |" ark:- \| \
         copy-feats --compress=$compress --compression-method=2 ${write_num_frames_opt} \
             ark:- ark,scp:${dumpdir}/feats.JOB.ark,${dumpdir}/feats.JOB.scp \
         || exit 1
 else
     $cmd JOB=1:$nj $logdir/dump_feature.JOB.log \
-        apply-cmvn --norm-vars=true --utt2spk=ark:$datadir/utt2spk \
-        scp:$datadir/cmvn.scp scp:$datadir/feats.scp ark:- \| \
-        append-vector-to-feats ark:- "ark:ivector-subtract-global-mean $meanvec scp:$logdir/ivecs.JOB.scp ark:- | transform-vec $ldatrans ark:- ark:- | ivector-normalize-length --scaleup=false ark:- ark:- |" ark:- \| \
+        apply-cmvn --norm-vars=true --utt2spk=ark:$datadir/utt2spk ark:$cmvnark \
+        scp:$logdir/feats.JOB.scp ark:- \| \
+        append-vector-to-feats ark:- "ark:ivector-subtract-global-mean $meanvec scp:$logdir/xvecs.JOB.scp ark:- | transform-vec $ldatrans ark:- ark:- | ivector-normalize-length --scaleup=$scaleup ark:- ark:- |" ark:- \| \
         copy-feats --compress=$compress --compression-method=2 ${write_num_frames_opt} \
-            ark:- ark,scp:${dumpdir}/feats.JOB.ark,${dumpdir}/feats.JOB.scp \
-        || exit 1
+            ark:- ark,scp:${dumpdir}/feats.JOB.ark,${dumpdir}/feats.JOB.scp || exit 1
 fi
 
 # concatenate scp files
@@ -92,6 +90,8 @@ if $write_utt2num_frames; then
     rm $dumpdir/utt2num_frames.* 2>/dev/null
 fi
 
+# remove temp scps
+rm $logdir/feats.*.scp 2>/dev/null
 if [ ${verbose} -eq 1 ]; then
     echo "Succeeded dumping features for training"
 fi
