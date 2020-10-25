@@ -1,0 +1,1 @@
+../../../../../../../kaldi/egs/voxceleb/v1/local/nnet3/xvector/prepare_feats_for_egs.sh
