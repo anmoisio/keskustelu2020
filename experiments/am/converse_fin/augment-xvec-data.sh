@@ -21,7 +21,7 @@ train_data=data/am-train_sp_hires_voxceleb_xvec
 musan_root=/scratch/elec/puhe/c/MUSAN
 
 # for extractor training
-train_stage=0
+train_stage=-1
 use_gpu=true
 remove_egs=false
 
