@@ -13,7 +13,7 @@ module list
 . ./path.sh
 . ./utils/parse_options.sh
 
-dir=exp/chain/tdnn7q_sp_vcxvecs_lda200_vad
+dir=exp/chain/tdnn7q_sp_xvecs_lda200_vad
 
 utils/lang/check_phones_compatible.sh \
     data/lang_chain/phones.txt \

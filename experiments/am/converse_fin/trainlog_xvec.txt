@@ -1,0 +1,173 @@
+moisioa3@login2:/scratch/work/moisioa3/keskustelu2020/experiments/am/converse_fin$ ./train-tdnn-swbd7q_xvecs.sh
+
+Currently Loaded Modules:
+  1) GCCcore/6.4.0   2) binutils/2.28-GCCcore-6.4.0   3) GCC/6.4.0-2.28   4) openfst/1.6.6-GCC-6.4.0   5) OpenBLAS/0.2.20-GCC-6.4.0-2.28   6) CUDA/9.0.176   7) CUB/1.8.0   8) sctk/2.4.10   9) sph2pipe/2.5  10) kaldi-2020/5968b4c-GCC-6.4.0-2.28-OPENBLAS
+
+
+
+./train-tdnn-swbd7q_xvecs.sh
+./train-tdnn-swbd7q_xvecs.sh: creating neural net configs using the xconfig parser
+tree-info exp/chain/tri3b_mmi_tree_sp/tree
+steps/nnet3/xconfig_to_configs.py --xconfig-file exp/chain/tdnn7q_sp_xvecs_lda200_vad/configs/network.xconfig --config-dir exp/chain/tdnn7q_sp_xvecs_lda200_vad/configs/
+nnet3-init exp/chain/tdnn7q_sp_xvecs_lda200_vad/configs//init.config exp/chain/tdnn7q_sp_xvecs_lda200_vad/configs//init.raw
+LOG (nnet3-init[5.5.681~1-5968b]:main():nnet3-init.cc:80) Initialized raw neural net and wrote it to exp/chain/tdnn7q_sp_xvecs_lda200_vad/configs//init.raw
+nnet3-info exp/chain/tdnn7q_sp_xvecs_lda200_vad/configs//init.raw
+nnet3-init exp/chain/tdnn7q_sp_xvecs_lda200_vad/configs//ref.config exp/chain/tdnn7q_sp_xvecs_lda200_vad/configs//ref.raw
+LOG (nnet3-init[5.5.681~1-5968b]:main():nnet3-init.cc:80) Initialized raw neural net and wrote it to exp/chain/tdnn7q_sp_xvecs_lda200_vad/configs//ref.raw
+nnet3-info exp/chain/tdnn7q_sp_xvecs_lda200_vad/configs//ref.raw
+nnet3-init exp/chain/tdnn7q_sp_xvecs_lda200_vad/configs//ref.config exp/chain/tdnn7q_sp_xvecs_lda200_vad/configs//ref.raw
+LOG (nnet3-init[5.5.681~1-5968b]:main():nnet3-init.cc:80) Initialized raw neural net and wrote it to exp/chain/tdnn7q_sp_xvecs_lda200_vad/configs//ref.raw
+nnet3-info exp/chain/tdnn7q_sp_xvecs_lda200_vad/configs//ref.raw
+2020-10-26 13:36:01,942 [steps/nnet3/chain/train.py:35 - <module> - INFO ] Starting chain model trainer (train.py)
+steps/nnet3/chain/train.py --stage -10 --cmd utils/slurm.pl --mem 3G --time 1:00:00 --feat.cmvn-opts --norm-means=false --norm-vars=false --chain.xent-regularize 0.1 --chain.leaky-hmm-coefficient 0.1 --chain.l2-regularize 0.0 --chain.apply-deriv-weights false --chain.lm-opts=--num-extra-lm-states=2000 --trainer.dropout-schedule 0,0@0.20,0.5@0.50,0 --trainer.add-option=--optimization.memory-compression-level=2 --egs.dir  --egs.stage -10 --egs.opts --frames-overlap-per-eg 0 --constrained false --egs.chunk-width 150,110,100 --trainer.num-chunk-per-minibatch 64 --trainer.frames-per-iter 1500000 --trainer.num-epochs 6 --trainer.optimization.num-jobs-initial 3 --trainer.optimization.num-jobs-final 16 --trainer.optimization.initial-effective-lrate 0.00025 --trainer.optimization.final-effective-lrate 0.000025 --trainer.max-param-change 2.0 --cleanup.remove-egs false --feat-dir exp/nnet3/xvectors_am-train_sp_hires_conv/feat_dump_lda200_vad --tree-dir exp/chain/tri3b_mmi_tree_sp --lat-dir exp/tri3b_mmi_b0.1_lats_sp --dir exp/chain/tdnn7q_sp_xvecs_lda200_vad
+['steps/nnet3/chain/train.py', '--stage', '-10', '--cmd', 'utils/slurm.pl --mem 3G --time 1:00:00', '--feat.cmvn-opts', '--norm-means=false --norm-vars=false', '--chain.xent-regularize', '0.1', '--chain.leaky-hmm-coefficient', '0.1', '--chain.l2-regularize', '0.0', '--chain.apply-deriv-weights', 'false', '--chain.lm-opts=--num-extra-lm-states=2000', '--trainer.dropout-schedule', '0,0@0.20,0.5@0.50,0', '--trainer.add-option=--optimization.memory-compression-level=2', '--egs.dir', '', '--egs.stage', '-10', '--egs.opts', '--frames-overlap-per-eg 0 --constrained false', '--egs.chunk-width', '150,110,100', '--trainer.num-chunk-per-minibatch', '64', '--trainer.frames-per-iter', '1500000', '--trainer.num-epochs', '6', '--trainer.optimization.num-jobs-initial', '3', '--trainer.optimization.num-jobs-final', '16', '--trainer.optimization.initial-effective-lrate', '0.00025', '--trainer.optimization.final-effective-lrate', '0.000025', '--trainer.max-param-change', '2.0', '--cleanup.remove-egs', 'false', '--feat-dir', 'exp/nnet3/xvectors_am-train_sp_hires_conv/feat_dump_lda200_vad', '--tree-dir', 'exp/chain/tri3b_mmi_tree_sp', '--lat-dir', 'exp/tri3b_mmi_b0.1_lats_sp', '--dir', 'exp/chain/tdnn7q_sp_xvecs_lda200_vad']
+2020-10-26 13:36:01,967 [steps/nnet3/chain/train.py:281 - train - INFO ] Arguments for the experiment
+{'alignment_subsampling_factor': 3,
+ 'apply_deriv_weights': False,
+ 'backstitch_training_interval': 1,
+ 'backstitch_training_scale': 0.0,
+ 'chunk_left_context': 0,
+ 'chunk_left_context_initial': -1,
+ 'chunk_right_context': 0,
+ 'chunk_right_context_final': -1,
+ 'chunk_width': '150,110,100',
+ 'cleanup': True,
+ 'cmvn_opts': '--norm-means=false --norm-vars=false',
+ 'combine_sum_to_one_penalty': 0.0,
+ 'command': 'utils/slurm.pl --mem 3G --time 1:00:00',
+ 'compute_per_dim_accuracy': False,
+ 'deriv_truncate_margin': None,
+ 'dir': 'exp/chain/tdnn7q_sp_xvecs_lda200_vad',
+ 'do_final_combination': True,
+ 'dropout_schedule': '0,0@0.20,0.5@0.50,0',
+ 'egs_command': None,
+ 'egs_dir': None,
+ 'egs_nj': 0,
+ 'egs_opts': '--frames-overlap-per-eg 0 --constrained false',
+ 'egs_stage': -10,
+ 'email': None,
+ 'exit_stage': None,
+ 'feat_dir': 'exp/nnet3/xvectors_am-train_sp_hires_conv/feat_dump_lda200_vad',
+ 'final_effective_lrate': 2.5e-05,
+ 'frame_subsampling_factor': 3,
+ 'frames_per_iter': 1500000,
+ 'initial_effective_lrate': 0.00025,
+ 'input_model': None,
+ 'l2_regularize': 0.0,
+ 'lat_dir': 'exp/tri3b_mmi_b0.1_lats_sp',
+ 'leaky_hmm_coefficient': 0.1,
+ 'left_deriv_truncate': None,
+ 'left_tolerance': 5,
+ 'lm_opts': '--num-extra-lm-states=2000',
+ 'max_lda_jobs': 10,
+ 'max_models_combine': 20,
+ 'max_objective_evaluations': 30,
+ 'max_param_change': 2.0,
+ 'momentum': 0.0,
+ 'num_chunk_per_minibatch': '64',
+ 'num_epochs': 6.0,
+ 'num_jobs_final': 16,
+ 'num_jobs_initial': 3,
+ 'num_jobs_step': 1,
+ 'online_ivector_dir': None,
+ 'preserve_model_interval': 100,
+ 'presoftmax_prior_scale_power': -0.25,
+ 'proportional_shrink': 0.0,
+ 'rand_prune': 4.0,
+ 'remove_egs': False,
+ 'reporting_interval': 0.1,
+ 'right_tolerance': 5,
+ 'samples_per_iter': 400000,
+ 'shrink_saturation_threshold': 0.4,
+ 'shrink_value': 1.0,
+ 'shuffle_buffer_size': 5000,
+ 'srand': 0,
+ 'stage': -10,
+ 'train_opts': ['--optimization.memory-compression-level=2'],
+ 'tree_dir': 'exp/chain/tri3b_mmi_tree_sp',
+ 'use_gpu': 'yes',
+ 'xent_regularize': 0.1}
+2020-10-26 13:36:03,805 [steps/nnet3/chain/train.py:338 - train - INFO ] Creating phone language-model
+2020-10-26 13:36:16,949 [steps/nnet3/chain/train.py:343 - train - INFO ] Creating denominator FST
+copy-transition-model exp/chain/tri3b_mmi_tree_sp/final.mdl exp/chain/tdnn7q_sp_xvecs_lda200_vad/0.trans_mdl
+LOG (copy-transition-model[5.5.681~1-5968b]:main():copy-transition-model.cc:62) Copied transition model.
+2020-10-26 13:36:20,276 [steps/nnet3/chain/train.py:350 - train - INFO ] Initializing a basic network for estimating preconditioning matrix
+2020-10-26 13:36:22,417 [steps/nnet3/chain/train.py:379 - train - INFO ] Generating egs
+steps/nnet3/chain/get_egs.sh --frames-overlap-per-eg 0 --constrained false --cmd utils/slurm.pl --mem 3G --time 1:00:00 --cmvn-opts --norm-means=false --norm-vars=false --online-ivector-dir  --left-context 35 --right-context 35 --left-context-initial -1 --right-context-final -1 --left-tolerance 5 --right-tolerance 5 --frame-subsampling-factor 3 --alignment-subsampling-factor 3 --stage -10 --frames-per-iter 1500000 --frames-per-eg 150,110,100 --srand 0 exp/nnet3/xvectors_am-train_sp_hires_conv/feat_dump_lda200_vad exp/chain/tdnn7q_sp_xvecs_lda200_vad exp/tri3b_mmi_b0.1_lats_sp exp/chain/tdnn7q_sp_xvecs_lda200_vad/egs
+utils/data/get_frame_shift.sh: neither exp/nnet3/xvectors_am-train_sp_hires_conv/feat_dump_lda200_vad/wav.scp nor exp/nnet3/xvectors_am-train_sp_hires_conv/feat_dump_lda200_vad/segments exist; assuming a frame shift of 0.01.
+steps/nnet3/chain/get_egs.sh: Holding out 300 utterances in validation set and 300 in training diagnostic set, out of total 47898.
+steps/nnet3/chain/get_egs.sh: creating egs.  To ensure they are not deleted later you can do:  touch exp/chain/tdnn7q_sp_xvecs_lda200_vad/egs/.nodelete
+steps/nnet3/chain/get_egs.sh: feature type is raw, with 'apply-cmvn'
+tree-info exp/chain/tdnn7q_sp_xvecs_lda200_vad/tree
+steps/nnet3/chain/get_egs.sh: working out number of frames of training data
+utils/data/get_utt2dur.sh: wave file does not exist so getting durations from feats files
+feat-to-len scp:exp/nnet3/xvectors_am-train_sp_hires_conv/feat_dump_lda200_vad/feats.scp ark,t:-
+utils/data/get_utt2dur.sh: computed exp/nnet3/xvectors_am-train_sp_hires_conv/feat_dump_lda200_vad/utt2dur
+steps/nnet3/chain/get_egs.sh: working out feature dim
+steps/nnet3/chain/get_egs.sh: creating 27 archives, each with 14733 egs, with
+steps/nnet3/chain/get_egs.sh:   150,110,100 labels per example, and (left,right) context = (35,35)
+steps/nnet3/chain/get_egs.sh: Getting validation and training subset examples in background.
+steps/nnet3/chain/get_egs.sh: Generating training examples on disk
+steps/nnet3/chain/get_egs.sh: recombining and shuffling order of archives on disk
+steps/nnet3/chain/get_egs.sh: Getting subsets of validation examples for diagnostics and combination.
+steps/nnet3/chain/get_egs.sh: Removing temporary archives, alignments and lattices
+steps/nnet3/chain/get_egs.sh: Finished preparing training examples
+2020-10-26 13:39:10,324 [steps/nnet3/chain/train.py:428 - train - INFO ] Copying the properties from exp/chain/tdnn7q_sp_xvecs_lda200_vad/egs to exp/chain/tdnn7q_sp_xvecs_lda200_vad
+2020-10-26 13:39:10,328 [steps/nnet3/chain/train.py:442 - train - INFO ] Computing the preconditioning matrix for input features
+2020-10-26 13:39:57,914 [steps/nnet3/chain/train.py:451 - train - INFO ] Preparing the initial acoustic model.
+2020-10-26 13:40:06,198 [steps/nnet3/chain/train.py:485 - train - INFO ] Training will run for 6.0 epochs = 51 iterations
+2020-10-26 13:40:06,199 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 0/50   Jobs: 3   Epoch: 0.00/6.0 (0.0% complete)   lr: 0.000750
+2020-10-26 13:41:08,588 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 1/50   Jobs: 3   Epoch: 0.04/6.0 (0.6% complete)   lr: 0.000739
+2020-10-26 13:42:08,000 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 2/50   Jobs: 4   Epoch: 0.07/6.0 (1.2% complete)   lr: 0.000972
+2020-10-26 13:43:04,364 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 3/50   Jobs: 4   Epoch: 0.12/6.0 (2.1% complete)   lr: 0.000954
+2020-10-26 13:44:16,097 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 4/50   Jobs: 4   Epoch: 0.17/6.0 (2.9% complete)   lr: 0.000936
+2020-10-26 13:45:12,461 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 5/50   Jobs: 4   Epoch: 0.22/6.0 (3.7% complete)   lr: 0.000918
+2020-10-26 13:46:14,874 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 6/50   Jobs: 5   Epoch: 0.27/6.0 (4.5% complete)   lr: 0.001126
+2020-10-26 13:47:11,188 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 7/50   Jobs: 5   Epoch: 0.33/6.0 (5.6% complete)   lr: 0.001100
+2020-10-26 13:48:07,603 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 8/50   Jobs: 5   Epoch: 0.40/6.0 (6.6% complete)   lr: 0.001074
+2020-10-26 13:49:04,945 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 9/50   Jobs: 5   Epoch: 0.46/6.0 (7.6% complete)   lr: 0.001049
+2020-10-26 13:50:00,340 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 10/50   Jobs: 6   Epoch: 0.52/6.0 (8.6% complete)   lr: 0.001229
+2020-10-26 13:51:02,738 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 11/50   Jobs: 6   Epoch: 0.59/6.0 (9.9% complete)   lr: 0.001195
+2020-10-26 13:51:59,506 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 12/50   Jobs: 6   Epoch: 0.67/6.0 (11.1% complete)   lr: 0.001161
+2020-10-26 13:52:55,924 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 13/50   Jobs: 6   Epoch: 0.74/6.0 (12.3% complete)   lr: 0.001129
+2020-10-26 13:53:53,695 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 14/50   Jobs: 7   Epoch: 0.81/6.0 (13.6% complete)   lr: 0.001280
+2020-10-26 13:54:51,073 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 15/50   Jobs: 7   Epoch: 0.90/6.0 (15.0% complete)   lr: 0.001238
+2020-10-26 13:55:47,785 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 16/50   Jobs: 7   Epoch: 0.99/6.0 (16.5% complete)   lr: 0.001198
+2020-10-26 13:56:44,555 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 17/50   Jobs: 7   Epoch: 1.07/6.0 (17.9% complete)   lr: 0.001159
+2020-10-26 13:57:40,926 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 18/50   Jobs: 8   Epoch: 1.16/6.0 (19.3% complete)   lr: 0.001281
+2020-10-26 14:00:07,484 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 19/50   Jobs: 8   Epoch: 1.26/6.0 (21.0% complete)   lr: 0.001234
+2020-10-26 14:01:07,834 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 20/50   Jobs: 8   Epoch: 1.36/6.0 (22.6% complete)   lr: 0.001188
+2020-10-26 14:02:16,516 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 21/50   Jobs: 8   Epoch: 1.46/6.0 (24.3% complete)   lr: 0.001143
+2020-10-26 14:03:18,891 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 22/50   Jobs: 9   Epoch: 1.56/6.0 (25.9% complete)   lr: 0.001239
+2020-10-26 14:05:42,542 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 23/50   Jobs: 9   Epoch: 1.67/6.0 (27.8% complete)   lr: 0.001187
+2020-10-26 14:08:30,074 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 24/50   Jobs: 9   Epoch: 1.78/6.0 (29.6% complete)   lr: 0.001137
+2020-10-26 14:10:50,609 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 25/50   Jobs: 9   Epoch: 1.89/6.0 (31.5% complete)   lr: 0.001090
+2020-10-26 14:13:34,259 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 26/50   Jobs: 10   Epoch: 2.00/6.0 (33.3% complete)   lr: 0.001160
+2020-10-26 14:16:20,489 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 27/50   Jobs: 10   Epoch: 2.12/6.0 (35.4% complete)   lr: 0.001107
+2020-10-26 14:18:49,166 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 28/50   Jobs: 10   Epoch: 2.25/6.0 (37.4% complete)   lr: 0.001055
+2020-10-26 14:21:21,753 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 29/50   Jobs: 10   Epoch: 2.37/6.0 (39.5% complete)   lr: 0.001007
+2020-10-26 14:23:52,286 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 30/50   Jobs: 11   Epoch: 2.49/6.0 (41.6% complete)   lr: 0.001056
+2020-10-26 14:26:25,807 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 31/50   Jobs: 11   Epoch: 2.63/6.0 (43.8% complete)   lr: 0.001002
+2020-10-26 14:29:01,416 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 32/50   Jobs: 11   Epoch: 2.77/6.0 (46.1% complete)   lr: 0.000952
+2020-10-26 14:31:32,384 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 33/50   Jobs: 11   Epoch: 2.90/6.0 (48.4% complete)   lr: 0.000903
+2020-10-26 14:34:06,013 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 34/50   Jobs: 12   Epoch: 3.04/6.0 (50.6% complete)   lr: 0.000935
+2020-10-26 14:36:38,657 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 35/50   Jobs: 12   Epoch: 3.19/6.0 (53.1% complete)   lr: 0.000884
+2020-10-26 14:39:15,658 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 36/50   Jobs: 12   Epoch: 3.33/6.0 (55.6% complete)   lr: 0.000835
+2020-10-26 14:42:03,354 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 37/50   Jobs: 12   Epoch: 3.48/6.0 (58.0% complete)   lr: 0.000789
+2020-10-26 14:44:54,007 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 38/50   Jobs: 13   Epoch: 3.63/6.0 (60.5% complete)   lr: 0.000807
+2020-10-26 14:47:43,616 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 39/50   Jobs: 13   Epoch: 3.79/6.0 (63.2% complete)   lr: 0.000759
+2020-10-26 14:50:17,560 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 40/50   Jobs: 13   Epoch: 3.95/6.0 (65.8% complete)   lr: 0.000714
+2020-10-26 14:53:19,441 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 41/50   Jobs: 13   Epoch: 4.11/6.0 (68.5% complete)   lr: 0.000671
+2020-10-26 14:56:24,088 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 42/50   Jobs: 14   Epoch: 4.27/6.0 (71.2% complete)   lr: 0.000679
+2020-10-26 14:59:05,637 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 43/50   Jobs: 14   Epoch: 4.44/6.0 (74.1% complete)   lr: 0.000636
+2020-10-26 15:01:48,250 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 44/50   Jobs: 14   Epoch: 4.62/6.0 (77.0% complete)   lr: 0.000595
+2020-10-26 15:04:35,923 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 45/50   Jobs: 14   Epoch: 4.79/6.0 (79.8% complete)   lr: 0.000557
+2020-10-26 15:07:18,639 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 46/50   Jobs: 15   Epoch: 4.96/6.0 (82.7% complete)   lr: 0.000558
+2020-10-26 15:10:00,277 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 47/50   Jobs: 15   Epoch: 5.15/6.0 (85.8% complete)   lr: 0.000520
+2020-10-26 15:12:44,839 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 48/50   Jobs: 15   Epoch: 5.33/6.0 (88.9% complete)   lr: 0.000484
+2020-10-26 15:15:27,156 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 49/50   Jobs: 15   Epoch: 5.52/6.0 (92.0% complete)   lr: 0.000451
+2020-10-26 15:18:08,724 [steps/nnet3/chain/train.py:529 - train - INFO ] Iter: 50/50   Jobs: 16   Epoch: 5.70/6.0 (95.1% complete)   lr: 0.000400
+2020-10-26 15:20:50,537 [steps/nnet3/chain/train.py:585 - train - INFO ] Doing final combination to produce final.mdl
+2020-10-26 15:20:50,538 [steps/libs/nnet3/train/chain_objf/acoustic_model.py:571 - combine_models - INFO ] Combining set([32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51]) models.
+2020-10-26 15:21:40,774 [steps/nnet3/chain/train.py:614 - train - INFO ] Cleaning up the experiment directory exp/chain/tdnn7q_sp_xvecs_lda200_vad
+exp/chain/tdnn7q_sp_xvecs_lda200_vad: num-iters=51 nj=3..16 num-params=17.3M dim=240->1784 combine=-0.060->-0.060 (over 1) xent:train/valid[33,50]=(-0.875,-0.713/-0.930,-0.771) logprob:train/valid[33,50]=(-0.087,-0.057/-0.102,-0.075)
