@@ -10,7 +10,7 @@ module list
 . ./path.sh
 . ./utils/parse_options.sh
 
-stage=2
+stage=3
 
 nj=30
 train_set="am-train" # you might set this to e.g. train.
@@ -94,4 +94,16 @@ if [ $stage -le 2 ]; then
     ${temp_data_root}/${train_set}_sp_dsp_hires_max2 \
     exp/nnet3${nnet3_affix}/extractor_spdsp \
     $ivectordir
+fi
+
+if [ $stage -le 3 ]; then
+  # Also extract iVectors for the test data, but in this case we don't need the speed
+  # perturbation (sp).
+  for data in ${test_sets}; do
+    nspk=$(wc -l <data/${data}_hires/spk2utt)
+    steps/online/nnet2/extract_ivectors_online.sh --cmd "$train_cmd" --nj 1 \
+        data/${data}_hires \
+        exp/nnet3${nnet3_affix}/extractor_spdsp \
+        exp/nnet3${nnet3_affix}/ivectors_${data}_hires_spdsp
+  done
 fi

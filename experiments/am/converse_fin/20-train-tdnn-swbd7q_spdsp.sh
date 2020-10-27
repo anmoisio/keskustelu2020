@@ -50,9 +50,29 @@ dropout_schedule='0,0@0.20,0.5@0.50,0'
 # End configuration section.
 echo "$0 $@"  # Print the command line for logging
 
-suffix=
-$speed_perturb && suffix=_sp
-dir=exp/chain/tdnn${affix}${suffix}_spdsp
+# suffix=
+# $speed_perturb && suffix=_sp
+suffix=_sp_dsp
+
+train_set=am-train
+
+# model dir
+dir=exp/chain/tdnn${affix}${suffix}
+
+# features dir
+feat_dir=data/${train_set}_sp_dsp_hires
+
+# alignments from the GMM AM as lattices
+lat_dir=exp/tri3b_mmi_b0.1_lats${suffix}
+
+# phonetic decision tree dir
+treedir=exp/chain/tri3b_mmi_tree${suffix}
+
+# lang dir
+lang=data/lang_chain
+
+# i-vector dir
+ivec_dir=exp/nnet3/ivectors_${train_set}_sp_dsp_hires
 
 if ! cuda-compiled; then
   cat <<EOF && exit 1
@@ -61,11 +81,6 @@ If you want to use GPUs (and have them), go to src/, and configure and make on a
 where "nvcc" is installed.
 EOF
 fi
-
-train_set=am-train$suffix
-ali_dir=exp/tri3b_mmi_b0.1_ali_am-train$suffix
-treedir=exp/chain/tri3b_mmi_tree$suffix
-lang=data/lang_chain
 
 echo "$0: creating neural net configs using the xconfig parser";
 
@@ -117,7 +132,7 @@ steps/nnet3/xconfig_to_configs.py --xconfig-file $dir/configs/network.xconfig --
 
   steps/nnet3/chain/train.py --stage $train_stage \
     --cmd "$train_cmd" \
-    --feat.online-ivector-dir exp/nnet3/ivectors_${train_set}_dsp_hires \
+    --feat.online-ivector-dir $ivec_dir \
     --feat.cmvn-opts "--norm-means=false --norm-vars=false" \
     --chain.xent-regularize $xent_regularize \
     --chain.leaky-hmm-coefficient 0.1 \
@@ -139,7 +154,7 @@ steps/nnet3/xconfig_to_configs.py --xconfig-file $dir/configs/network.xconfig --
     --trainer.optimization.final-effective-lrate 0.000025 \
     --trainer.max-param-change 2.0 \
     --cleanup.remove-egs $remove_egs \
-    --feat-dir data/${train_set}_dsp_hires \
+    --feat-dir $feat_dir \
     --tree-dir $treedir \
-    --lat-dir exp/tri3b_mmi_b0.1_lats$suffix \
+    --lat-dir $lat_dir \
     --dir $dir  || exit 1;

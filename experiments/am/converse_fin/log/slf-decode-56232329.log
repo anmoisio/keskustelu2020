@@ -1,0 +1,9 @@
+Experiment: am/converse_fin
+Job ID: 56232329
+Task ID: 
+Host: csl48.int.triton.aalto.fi
+Start date: Tue Oct 27 12:55:58 EET 2020
+Work directory: /scratch/work/moisioa3/conv_lm/experiments/am/converse_fin
+Temporary directory: /tmp/56232329
+mkdir: cannot create directory '/trn_devel': Permission denied
+Failed on line: 20 at command: mkdir -p "${trn_dir}"

@@ -1,0 +1,39 @@
+Experiment: am/converse_fin
+Job ID: 56226638
+Task ID: 
+Host: csl47.int.triton.aalto.fi
+Start date: Tue Oct 27 07:35:16 EET 2020
+Work directory: /scratch/work/moisioa3/conv_lm/experiments/am/converse_fin
+Temporary directory: /tmp/56226638
+
+Currently Loaded Modules:
+  1) GCCcore/6.4.0
+  2) binutils/2.28-GCCcore-6.4.0
+  3) GCC/6.4.0-2.28
+  4) openfst/1.6.6-GCC-6.4.0
+  5) OpenBLAS/0.2.20-GCC-6.4.0-2.28
+  6) CUDA/9.0.176
+  7) CUB/1.8.0
+  8) sctk/2.4.10
+  9) sph2pipe/2.5
+ 10) kaldi-2020/5968b4c-GCC-6.4.0-2.28-OPENBLAS
+
+ 
+
+steps/oracle_wer.sh data/devel_hires data/lang_test_word_fullvocab exp/chain/tdnn7q_sp_dsp/decode_devel_word_fullvocab
+steps/oracle_wer.sh: measuring lattice depth
+Depth is: 67.64 ( 16558944 / 244798 )
+steps/oracle_wer.sh: measuring lattice oracle WER
+Oracle WER is: 11.86% [ 2130 / 17953, 85 insertions, 744 deletions, 1301 substitutions ]
+steps/oracle_wer.sh data/devel_hires data/lang_test_word_fullvocab exp/chain/tdnn7q_sp_noivecs/decode_devel_word_fullvocab
+steps/oracle_wer.sh: measuring lattice depth
+Depth is: 72.47 ( 17741483 / 244798 )
+steps/oracle_wer.sh: measuring lattice oracle WER
+Oracle WER is: 12.06% [ 2165 / 17953, 86 insertions, 736 deletions, 1343 substitutions ]
+steps/oracle_wer.sh data/devel_hires data/lang_test_word_fullvocab exp/chain/tdnn7q_sp_psmitivecs/decode_devel_word_fullvocab
+steps/oracle_wer.sh: measuring lattice depth
+Depth is: 57.28 ( 14022594 / 244798 )
+steps/oracle_wer.sh: measuring lattice oracle WER
+Oracle WER is: 11.94% [ 2143 / 17953, 93 insertions, 730 deletions, 1320 substitutions ]
+steps/oracle_wer.sh data/devel_hires data/lang_test_word_fullvocab exp/chain/tdnn7q_sp_vcivecs_lda100/decode_devel_word_fullvocab
+steps/oracle_wer.sh: expected file exp/chain/tdnn7q_sp_vcivecs_lda100/decode_devel_word_fullvocab/lat.1.gz to exist

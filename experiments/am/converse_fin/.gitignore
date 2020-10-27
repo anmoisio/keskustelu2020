@@ -14,6 +14,7 @@ exp/chain/*
 !exp/chain/tdnn7q_sp*
 exp/chain/tdnn7q_sp*/*
 !exp/chain/tdnn7q_sp*/decode*
+!exp/chain/tdnn7q_sp*/results*
 exp/chain/tdnn7q_sp*/decode*/*
 !exp/chain/tdnn7q_sp*/decode*/scoring_kaldi
 exp/chain/tdnn7q_sp*/decode*/scoring_kaldi/*

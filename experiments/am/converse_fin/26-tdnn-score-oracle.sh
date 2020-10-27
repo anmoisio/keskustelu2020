@@ -1,5 +1,5 @@
 #!/bin/bash -e
-#SBATCH --time=01:00:00  
+#SBATCH --time=04:00:00  
 #SBATCH --mem=4G
 
 source ../../../scripts/run-expt.sh "${0}"
@@ -16,7 +16,7 @@ cd "${EXPT_SCRIPT_DIR}"
 
 decode_sets=devel
 
-dir=exp/chain/tdnn7q_sp
+# dir=exp/chain/tdnn7q_sp
 
 # for decode_set in $decode_sets; do
 #     steps/oracle_wer.sh --cmd "$decode_cmd" \
@@ -25,9 +25,19 @@ dir=exp/chain/tdnn7q_sp
 #         $dir/decode_${decode_set}_word_fullvocab
 # done
 
-for decode_set in $decode_sets; do
-    steps/oracle_wer.sh --cmd "$decode_cmd" \
-        data/${decode_set}_hires \
-        data/lang_fullvocab \
-        $dir/decode_${decode_set}_morph_nosp
+# for decode_set in $decode_sets; do
+#     steps/oracle_wer.sh --cmd "$decode_cmd" \
+#         data/${decode_set}_hires \
+#         data/lang_fullvocab \
+#         $dir/decode_${decode_set}_morph_nosp
+# done
+
+for dir in exp/chain/tdnn7q_sp_*
+do
+    for decode_set in $decode_sets; do
+        steps/oracle_wer.sh --cmd "$decode_cmd" \
+            data/${decode_set}_hires \
+            data/lang_test_word_fullvocab \
+            $dir/decode_${decode_set}_word_fullvocab
+    done
 done

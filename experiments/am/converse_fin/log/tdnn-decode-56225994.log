@@ -1,0 +1,25 @@
+Experiment: am/converse_fin
+Job ID: 56225994
+Task ID: 
+Host: csl45.int.triton.aalto.fi
+Start date: Mon Oct 26 22:02:48 EET 2020
+Work directory: /scratch/work/moisioa3/conv_lm/experiments/am/converse_fin
+Temporary directory: /tmp/56225994
+
+Currently Loaded Modules:
+  1) GCCcore/6.4.0
+  2) binutils/2.28-GCCcore-6.4.0
+  3) GCC/6.4.0-2.28
+  4) openfst/1.6.6-GCC-6.4.0
+  5) OpenBLAS/0.2.20-GCC-6.4.0-2.28
+  6) CUDA/9.0.176
+  7) CUB/1.8.0
+  8) sctk/2.4.10
+  9) sph2pipe/2.5
+ 10) kaldi-2020/5968b4c-GCC-6.4.0-2.28-OPENBLAS
+
+ 
+
+steps/nnet3/decode.sh --nj 8 --cmd utils/slurm.pl --mem 16G --time 1:00:00 --acwt 1.0 --post-decode-acwt 10.0 --online-ivector-dir exp/nnet3/ivectors_devel_hires exp/chain/tdnn7q_sp_dsp/graph_word_fullvocab data/devel_hires exp/chain/tdnn7q_sp_dsp/decode_devel_word_fullvocab
+steps/nnet2/check_ivectors_compatible.sh: ERROR: iVector id 5cd7323f604ec6feaf1f491e79f30175 in exp/chain/tdnn7q_sp_dsp and the iVector id aebf1a6197160ddbbdbed5c9d199221a in exp/nnet3/ivectors_devel_hires do not match
+steps/nnet2/check_ivectors_compatible.sh: ERROR: that means that the systems are not compatible.

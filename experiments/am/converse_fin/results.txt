@@ -1,0 +1,42 @@
+exp/chain/tdnn7q_sp/decode_devel_word_fullvocab/scoring_kaldi
+%WER 35.48 [ 6199 / 17470, 500 ins, 1371 del, 4328 sub ] exp/chain/tdnn7q_sp/decode_devel_word_fullvocab/wer_11_0.0
+12.27% [ 2203 / 17953, 86 insertions, 756 deletions, 1361 substitutions ]
+
+exp/chain/tdnn7q_sp_dsp/decode_devel_word_fullvocab/scoring_kaldi
+%WER 35.91 [ 6273 / 17470, 473 ins, 1492 del, 4308 sub ] exp/chain/tdnn7q_sp_dsp/decode_devel_word_fullvocab/wer_11_0.0
+%WER 12.08 [ 10671 / 88355, 2917 ins, 4752 del, 3002 sub ] exp/chain/tdnn7q_sp_dsp/decode_devel_word_fullvocab/cer_10_0.0
+11.86% [ 2130 / 17953, 85 insertions, 744 deletions, 1301 substitutions ]
+
+exp/chain/tdnn7q_sp_noivecs/decode_devel_word_fullvocab/scoring_kaldi
+%WER 36.08 [ 6304 / 17470, 442 ins, 1633 del, 4229 sub ] exp/chain/tdnn7q_sp_noivecs/decode_devel_word_fullvocab/wer_12_0.0
+12.06% [ 2165 / 17953, 86 insertions, 736 deletions, 1343 substitutions ]
+
+exp/chain/tdnn7q_sp_psmitivecs/decode_devel_word_fullvocab/scoring_kaldi
+%WER 34.85 [ 6088 / 17470, 500 ins, 1324 del, 4264 sub ] exp/chain/tdnn7q_sp_psmitivecs/decode_devel_word_fullvocab/wer_11_0.0
+11.94% [ 2143 / 17953, 93 insertions, 730 deletions, 1320 substitutions ]
+
+exp/chain/tdnn7q_sp_vcivecs_lda100/decode_devel_word_fullvocab/scoring_kaldi
+%WER 35.04 [ 6121 / 17470, 437 ins, 1498 del, 4186 sub ] exp/chain/tdnn7q_sp_vcivecs_lda100/decode_devel_word_fullvocab_new/wer_12_0.0
+%WER 11.87 [ 10488 / 88355, 3359 ins, 4076 del, 3053 sub ] exp/chain/tdnn7q_sp_vcivecs_lda100/decode_devel_word_fullvocab_new/cer_9_0.0
+11.99% [ 2152 / 17953, 87 insertions, 744 deletions, 1321 substitutions ]
+
+exp/chain/tdnn7q_sp_vcivecs_lda200/decode_devel_word_fullvocab/scoring_kaldi
+%WER 34.93 [ 6102 / 17470, 519 ins, 1304 del, 4279 sub ] exp/chain/tdnn7q_sp_vcivecs/decode_devel_word_fullvocab/wer_11_0.0
+%WER 11.82 [ 10446 / 88355, 3301 ins, 4074 del, 3071 sub ] exp/chain/tdnn7q_sp_vcivecs/decode_devel_word_fullvocab/cer_9_0.0
+11.80% [ 2118 / 17953, 102 insertions, 702 deletions, 1314 substitutions ]
+
+exp/chain/tdnn7q_sp_vcivecs_lda200_vad/decode_devel_word_fullvocab/scoring_kaldi
+%WER 34.96 [ 6107 / 17470, 519 ins, 1279 del, 4309 sub ] exp/chain/tdnn7q_sp_vcivecs_lda200_vad/decode_devel_word_fullvocab/wer_11_0.0
+%WER 11.72 [ 10359 / 88355, 3125 ins, 4313 del, 2921 sub ] exp/chain/tdnn7q_sp_vcivecs_lda200_vad/decode_devel_word_fullvocab/cer_10_0.0
+12.22% [ 2193 / 17953, 98 insertions, 708 deletions, 1387 substitutions ]
+
+exp/chain/tdnn7q_sp_vcxvecs_lda200_vad/decode_devel_word_fullvocab/scoring_kaldi
+%WER 35.04 [ 6122 / 17470, 541 ins, 1180 del, 4401 sub ] exp/chain/tdnn7q_sp_vcxvecs_lda200_vad/decode_devel_word_fullvocab/wer_10_0.0
+%WER 11.72 [ 10359 / 88355, 3340 ins, 3902 del, 3117 sub ] exp/chain/tdnn7q_sp_vcxvecs_lda200_vad/decode_devel_word_fullvocab/cer_9_0.0
+11.95% [ 2145 / 17953, 89 insertions, 715 deletions, 1341 substitutions ]
+
+exp/chain/tdnn7q_sp_xvecs_lda200_vad/decode_devel_word_fullvocab/scoring_kaldi
+%WER 35.45 [ 6193 / 17470, 460 ins, 1493 del, 4240 sub ] exp/chain/tdnn7q_sp_xvecs_lda200_vad/decode_devel_word_fullvocab/wer_12_0.0
+%WER 11.92 [ 10528 / 88355, 3252 ins, 4323 del, 2953 sub ] exp/chain/tdnn7q_sp_xvecs_lda200_vad/decode_devel_word_fullvocab/cer_10_0.0
+12.01% [ 2157 / 17953, 95 insertions, 709 deletions, 1353 substitutions ]
+
