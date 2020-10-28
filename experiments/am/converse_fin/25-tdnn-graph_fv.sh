@@ -13,7 +13,7 @@ module list
 . ./path.sh
 . ./utils/parse_options.sh
 
-dir=exp/chain/tdnn7q_sp_alldataivecs
+dir=exp/chain/tdnn7q_sp_offline
 
 utils/lang/check_phones_compatible.sh \
     data/lang_chain/phones.txt \

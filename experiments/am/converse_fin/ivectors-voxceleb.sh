@@ -22,57 +22,57 @@ train_set="am-train" # you might set this to e.g. train.
 test_sets="devel eval"
 ivec_suffix=_hires_voxceleb_vad
 
-# # note, we don't encode the 'max2' in the name of the ivectordir even though
-# # that's the data we extract the ivectors from, as it's still going to be
-# # valid for the non-'max2' data; the utterance list is the same.
+# note, we don't encode the 'max2' in the name of the ivectordir even though
+# that's the data we extract the ivectors from, as it's still going to be
+# valid for the non-'max2' data; the utterance list is the same.
 ivectordir=exp/nnet3${nnet3_affix}/ivectors_${train_set}_sp${ivec_suffix}
 
-# # We now extract iVectors on the speed-perturbed training data .  With
-# # --utts-per-spk-max 2, the script pairs the utterances into twos, and treats
-# # each of these pairs as one speaker; this gives more diversity in iVectors..
-# # Note that these are extracted 'online' (they vary within the utterance).
+# We now extract iVectors on the speed-perturbed training data .  With
+# --utts-per-spk-max 2, the script pairs the utterances into twos, and treats
+# each of these pairs as one speaker; this gives more diversity in iVectors..
+# Note that these are extracted 'online' (they vary within the utterance).
 
-# # Having a larger number of speakers is helpful for generalization, and to
-# # handle per-utterance decoding well (the iVector starts at zero at the beginning
-# # of each pseudo-speaker).
+# Having a larger number of speakers is helpful for generalization, and to
+# handle per-utterance decoding well (the iVector starts at zero at the beginning
+# of each pseudo-speaker).
 temp_data_root=${ivectordir}
-# utils/data/modify_speaker_info.sh \
-#   --utts-per-spk-max 2 \
-#   data/${train_set}_sp_hires_voxceleb  \
-#   ${temp_data_root}/${train_set}_sp_hires_voxceleb_max2
+utils/data/modify_speaker_info.sh \
+  --utts-per-spk-max 2 \
+  data/${train_set}_sp_hires_voxceleb  \
+  ${temp_data_root}/${train_set}_sp_hires_voxceleb_max2
 
-# sid/compute_vad_decision.sh --nj $nj --cmd "$train_cmd" \
-#   --vad-config 0007_voxceleb_v1_1a/conf/vad.conf \
-#   ${temp_data_root}/${train_set}_sp_hires_voxceleb_max2
+sid/compute_vad_decision.sh --nj $nj --cmd "$train_cmd" \
+  --vad-config 0007_voxceleb_v1_1a/conf/vad.conf \
+  ${temp_data_root}/${train_set}_sp_hires_voxceleb_max2
 
-# extractor_dir=0007_voxceleb_v1_1a/exp/extractor 
-# sid/extract_ivectors.sh --cmd "$train_cmd" --nj 40 \
-#   ${extractor_dir} \
-#   ${temp_data_root}/${train_set}_sp_hires_voxceleb_max2 \
-#   $ivectordir
+extractor_dir=0007_voxceleb_v1_1a/exp/extractor 
+sid/extract_ivectors.sh --cmd "$train_cmd" --nj 40 \
+  ${extractor_dir} \
+  ${temp_data_root}/${train_set}_sp_hires_voxceleb_max2 \
+  $ivectordir
 
 # # Also extract iVectors for the test data, but in this case we don't need the speed
 # # perturbation (sp).
-# for data in ${test_sets}; do
-#   # nspk=$(wc -l <data/${data}_hires/spk2utt) # nj can't be larger than number of spks
-#   sid/extract_ivectors.sh --cmd "$train_cmd" --nj 17 \
-#       ${extractor_dir} \
-#       data/${data}_hires_voxceleb  \
-#       exp/nnet3/ivectors_${data}${ivec_suffix}
-# done
+for data in ${test_sets}; do
+  # nspk=$(wc -l <data/${data}_hires/spk2utt) # nj can't be larger than number of spks
+  sid/extract_ivectors.sh --cmd "$train_cmd" --nj 17 \
+      ${extractor_dir} \
+      data/${data}_hires_voxceleb  \
+      exp/nnet3/ivectors_${data}${ivec_suffix}
+done
 
 # Compute the mean vector of the training set i-vectors
 # for centering the evaluation i-vectors.
-# $train_cmd exp/ivectors_train/log/compute_mean.log \
-#   ivector-mean scp:exp/nnet3/ivectors_${train_set}_sp${ivec_suffix}/ivector.scp \
-#   exp/nnet3/ivectors_${train_set}_sp${ivec_suffix}/mean.vec || exit 1;
+$train_cmd exp/ivectors_train/log/compute_mean.log \
+  ivector-mean scp:exp/nnet3/ivectors_${train_set}_sp${ivec_suffix}/ivector.scp \
+  exp/nnet3/ivectors_${train_set}_sp${ivec_suffix}/mean.vec || exit 1;
 
 # # Compute LDA to decrease the dimensionality
 lda_dim=200
-# $train_cmd exp/nnet3/ivectors_${train_set}_sp${ivec_suffix}/log/lda$lda_dim.log \
-#   ivector-compute-lda --total-covariance-factor=0.0 --dim=$lda_dim \
-#   "ark:ivector-subtract-global-mean scp:exp/nnet3/ivectors_${train_set}_sp${ivec_suffix}/ivector.scp ark:- |" \
-#   ark:data/${train_set}_sp/utt2spk exp/nnet3/ivectors_${train_set}_sp${ivec_suffix}/lda$lda_dim.mat || exit 1;
+$train_cmd exp/nnet3/ivectors_${train_set}_sp${ivec_suffix}/log/lda$lda_dim.log \
+  ivector-compute-lda --total-covariance-factor=0.0 --dim=$lda_dim \
+  "ark:ivector-subtract-global-mean scp:exp/nnet3/ivectors_${train_set}_sp${ivec_suffix}/ivector.scp ark:- |" \
+  ark:data/${train_set}_sp/utt2spk exp/nnet3/ivectors_${train_set}_sp${ivec_suffix}/lda$lda_dim.mat || exit 1;
 
 for data in ${train_set}_sp ; do
   # apply LDA and concatenate the i-vectors to features
