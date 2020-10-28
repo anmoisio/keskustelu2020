@@ -47,12 +47,38 @@ remove_egs=false
 common_egs_dir=
 xent_regularize=0.1
 dropout_schedule='0,0@0.20,0.5@0.50,0'
-# End configuration section.
-echo "$0 $@"  # Print the command line for logging
+
+
+nnet3_affix=_alldata    # affix for exp/nnet3 directory to put iVector stuff in (e.g.
+                # in the tedlium recip it's _cleaned).
 
 suffix=
 $speed_perturb && suffix=_sp
-dir=exp/chain/tdnn${affix}${suffix}_noivecs
+
+train_set=am-train
+
+# model dir
+dir=exp/chain/tdnn${affix}${suffix}_alldataivecs
+
+# features dir
+feat_dir=data/${train_set}_sp_hires
+
+# alignments from the GMM AM as lattices
+lat_dir=exp/tri3b_mmi_b0.1_lats${suffix}
+
+# phonetic decision tree dir
+treedir=exp/chain/tri3b_mmi_tree${suffix}
+
+# lang dir
+lang=data/lang_chain
+
+# i-vector dir
+ivec_dir=exp/nnet3${nnet3_affix}/ivectors_${train_set}_sp_hires
+
+
+# End configuration section.
+echo "$0 $@"  # Print the command line for logging
+
 
 if ! cuda-compiled; then
   cat <<EOF && exit 1
@@ -80,12 +106,13 @@ output_opts="l2-regularize=0.002"
 mkdir -p $dir/configs
 
 cat <<EOF > $dir/configs/network.xconfig
+input dim=100 name=ivector
 input dim=40 name=input
 
 # please note that it is important to have input layer with the name=input
 # as the layer immediately preceding the fixed-affine-layer to enable
 # the use of short notation for the descriptor
-fixed-affine-layer name=lda input=Append(-1,0,1) affine-transform-file=$dir/configs/lda.mat
+fixed-affine-layer name=lda input=Append(-1,0,1,ReplaceIndex(ivector, t, 0)) affine-transform-file=$dir/configs/lda.mat
 
 # the first splicing is moved before the lda layer, so no splicing here
 relu-batchnorm-dropout-layer name=tdnn1 $affine_opts dim=1536
@@ -116,6 +143,7 @@ steps/nnet3/xconfig_to_configs.py --xconfig-file $dir/configs/network.xconfig --
 
   steps/nnet3/chain/train.py --stage $train_stage \
     --cmd "$train_cmd" \
+    --feat.online-ivector-dir $ivec_dir \
     --feat.cmvn-opts "--norm-means=false --norm-vars=false" \
     --chain.xent-regularize $xent_regularize \
     --chain.leaky-hmm-coefficient 0.1 \
@@ -137,7 +165,7 @@ steps/nnet3/xconfig_to_configs.py --xconfig-file $dir/configs/network.xconfig --
     --trainer.optimization.final-effective-lrate 0.000025 \
     --trainer.max-param-change 2.0 \
     --cleanup.remove-egs $remove_egs \
-    --feat-dir data/${train_set}_hires \
+    --feat-dir $feat_dir \
     --tree-dir $treedir \
-    --lat-dir exp/tri3b_mmi_b0.1_lats$suffix \
+    --lat-dir $lat_dir \
     --dir $dir  || exit 1;

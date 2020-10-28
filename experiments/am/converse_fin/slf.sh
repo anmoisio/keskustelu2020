@@ -1,6 +1,6 @@
 #!/bin/bash -e
 #SBATCH --partition batch
-#SBATCH --time=5:00:00
+#SBATCH --time=2:00:00
 #SBATCH --mem=7G
 
 source ../../../scripts/run-expt.sh "${0}"
@@ -70,9 +70,11 @@ results () {
         > ${model_dir}/results_${test_set}_word_fullvocab
 }
 
-for model in exp/chain/tdnn7q_sp{,_dsp,_noivecs,_vc*,_xvecs*}
-do
+model=exp/chain/tdnn7q_sp_alldataivecs
+
+# for model in exp/chain/tdnn7q_sp{,_dsp,_noivecs,_vc*,_xvecs*}
+# do
     convert devel $model
     decode devel $model
     results devel $model
-done
+# done

@@ -13,12 +13,11 @@ module list
 . ./path.sh
 . ./utils/parse_options.sh
 
-dir=exp/chain/tdnn7q_sp_dsp
+dir=exp/chain/tdnn7q_sp_alldataivecs
 
 utils/lang/check_phones_compatible.sh \
     data/lang_chain/phones.txt \
     data/lang_test_word_fullvocab/phones.txt
-
 
 # 10GB mem
 # utils/mkgraph.sh \
