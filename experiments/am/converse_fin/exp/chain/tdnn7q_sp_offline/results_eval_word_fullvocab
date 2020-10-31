@@ -1,0 +1,13 @@
+proj dir /scratch/work/moisioa3/conv_lm/scripts/..
+refs /scratch/work/moisioa3/conv_lm/scripts/../data/eval/normalized.trn
+params exp/chain/tdnn7q_sp_offline/trn_eval_word_fullvocab/lats-lms=10.trn exp/chain/tdnn7q_sp_offline/trn_eval_word_fullvocab/lats-lms=11.trn exp/chain/tdnn7q_sp_offline/trn_eval_word_fullvocab/lats-lms=12.trn exp/chain/tdnn7q_sp_offline/trn_eval_word_fullvocab/lats-lms=8.trn exp/chain/tdnn7q_sp_offline/trn_eval_word_fullvocab/lats-lms=9.trn
+lats-lms=10
+      | Sum/Avg|  541    6312 | 76.3   17.3    6.5    3.1   26.8   78.9 |
+lats-lms=11
+      | Sum/Avg|  541    6306 | 76.4   16.5    7.1    2.9   26.5   79.5 |
+lats-lms=12
+      | Sum/Avg|  541    6309 | 75.8   16.2    7.9    2.5   26.6   79.3 |
+lats-lms=8
+      | Sum/Avg|  541    6318 | 75.5   19.1    5.4    4.1   28.5   80.2 |
+lats-lms=9
+      | Sum/Avg|  541    6314 | 76.1   18.1    5.8    3.6   27.4   79.5 |

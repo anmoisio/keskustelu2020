@@ -12,19 +12,39 @@ module list
 
 cd "${EXPT_SCRIPT_DIR}"
 
-nnet3_affix=_alldata
+# nnet3_affix=_offline
 
-decode_sets=devel 
-dir=exp/chain/tdnn7q_sp_alldataivecs
+decode_sets=eval 
+dir=exp/chain/tdnn7q_sp_xvecs_lda200_vad
 for decode_set in $decode_sets; do
     steps/nnet3/decode.sh --nj 8 --cmd "$decode_cmd" \
         --acwt 1.0 \
         --post-decode-acwt 10.0 \
-        --online-ivector-dir exp/nnet3${nnet3_affix}/ivectors_${decode_set}_hires \
         $dir/graph_word_fullvocab \
-        data/${decode_set}_hires \
+        exp/nnet3${nnet3_affix}/xvectors_${decode_set}_hires_conv/feat_dump_lda200_vad \
         $dir/decode_${decode_set}_word_fullvocab
 done
+
+# dir=exp/chain/tdnn7q_sp_offline
+# for decode_set in $decode_sets; do
+#     steps/nnet3/decode.sh --nj 8 --cmd "$decode_cmd" \
+#         --acwt 1.0 \
+#         --post-decode-acwt 10.0 \
+#         $dir/graph_word_fullvocab \
+#         exp/nnet3${nnet3_affix}/ivectors_${decode_set}_hires/feat_dump_lda200_vad \
+#         $dir/decode_${decode_set}_word_fullvocab
+# done
+
+# dir=exp/chain/tdnn7q_sp_alldataivecs
+# for decode_set in $decode_sets; do
+#     steps/nnet3/decode.sh --nj 8 --cmd "$decode_cmd" \
+#         --acwt 1.0 \
+#         --post-decode-acwt 10.0 \
+#         --online-ivector-dir exp/nnet3${nnet3_affix}/ivectors_${decode_set}_hires \
+#         $dir/graph_word_fullvocab \
+#         data/${decode_set}_hires \
+#         $dir/decode_${decode_set}_word_fullvocab
+# done
 
 # dir=exp/chain/tdnn7q_sp_dsp
 # for decode_set in $decode_sets; do

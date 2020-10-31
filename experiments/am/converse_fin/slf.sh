@@ -70,11 +70,13 @@ results () {
         > ${model_dir}/results_${test_set}_word_fullvocab
 }
 
-model=exp/chain/tdnn7q_sp_alldataivecs
+# model=exp/chain/tdnn7q_sp_xvecs_lda200_vad
+decode_set=eval
 
 # for model in exp/chain/tdnn7q_sp{,_dsp,_noivecs,_vc*,_xvecs*}
-# do
-    convert devel $model
-    decode devel $model
-    results devel $model
-# done
+for model in exp/chain/tdnn7q_sp
+do
+    convert ${decode_set} $model
+    decode ${decode_set} $model
+    results ${decode_set} $model
+done

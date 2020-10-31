@@ -1,0 +1,37 @@
+Experiment: am/converse_fin
+Job ID: 56255696
+Task ID: 
+Host: csl41.int.triton.aalto.fi
+Start date: Wed Oct 28 20:40:13 EET 2020
+Work directory: /scratch/work/moisioa3/conv_lm/experiments/am/converse_fin
+Temporary directory: /tmp/56255696
+
+Currently Loaded Modules:
+  1) GCCcore/6.4.0
+  2) binutils/2.28-GCCcore-6.4.0
+  3) GCC/6.4.0-2.28
+  4) openfst/1.6.6-GCC-6.4.0
+  5) OpenBLAS/0.2.20-GCC-6.4.0-2.28
+  6) CUDA/9.0.176
+  7) CUB/1.8.0
+  8) sctk/2.4.10
+  9) sph2pipe/2.5
+ 10) kaldi-2020/5968b4c-GCC-6.4.0-2.28-OPENBLAS
+
+ 
+
+tree-info exp/chain/tdnn7q_sp_offline/tree 
+tree-info exp/chain/tdnn7q_sp_offline/tree 
+make-h-transducer --disambig-syms-out=exp/chain/tdnn7q_sp_offline/graph_word_fullvocab/disambig_tid.int --transition-scale=1.0 data/lang_test_word_fullvocab/tmp/ilabels_2_1 exp/chain/tdnn7q_sp_offline/tree exp/chain/tdnn7q_sp_offline/final.mdl 
+fstrmsymbols exp/chain/tdnn7q_sp_offline/graph_word_fullvocab/disambig_tid.int 
+fstminimizeencoded 
+fstdeterminizestar --use-log=true 
+fstrmepslocal 
+fsttablecompose exp/chain/tdnn7q_sp_offline/graph_word_fullvocab/Ha.fst data/lang_test_word_fullvocab/tmp/CLG_2_1.fst 
+fstisstochastic exp/chain/tdnn7q_sp_offline/graph_word_fullvocab/HCLGa.fst 
+0.419998 -0.424212
+HCLGa is not stochastic
+add-self-loops --self-loop-scale=1.0 --reorder=true exp/chain/tdnn7q_sp_offline/final.mdl exp/chain/tdnn7q_sp_offline/graph_word_fullvocab/HCLGa.fst 
+fstisstochastic exp/chain/tdnn7q_sp_offline/graph_word_fullvocab/HCLG.fst 
+0.18811 -0.294894
+[info]: final HCLG is not stochastic.

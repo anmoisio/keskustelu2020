@@ -13,18 +13,11 @@ module list
 . ./path.sh
 . ./utils/parse_options.sh
 
-dir=exp/chain/tdnn7q_sp_finetuned_xvecs
+dir=exp/chain/tdnn7q_sp_vcxvecs_lda200_vad
 
 utils/lang/check_phones_compatible.sh \
     data/lang_chain/phones.txt \
     data/lang_test_word_fullvocab/phones.txt
-
-utils/mkgraph.sh \
-    --self-loop-scale 1.0 \
-    data/lang_test_word_fullvocab \
-    $dir \
-    $dir/graph_word_fullvocab|| exit 1;
-
 
 # 10GB mem
 # utils/mkgraph.sh \
@@ -40,11 +33,11 @@ utils/mkgraph.sh \
 #     exp/chain/tdnn7q_sp_noivecs \
 #     exp/chain/tdnn7q_sp_noivecs/graph_word_fullvocab || exit 1;
 
-# utils/mkgraph.sh \
-#     --self-loop-scale 1.0 \
-#     data/lang_test_word_fullvocab \
-#     $dir \
-#     $dir/graph_word_fullvocab || exit 1;
+utils/mkgraph.sh \
+    --self-loop-scale 1.0 \
+    data/lang_test_word_fullvocab \
+    $dir \
+    $dir/graph_word_fullvocab || exit 1;
 
 
 

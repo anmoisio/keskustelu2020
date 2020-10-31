@@ -15,6 +15,7 @@ scaleup=true
 
 . utils/parse_options.sh
 
+echo "$0 $@"
 
 if [ $# != 7 ]; then
     echo "Usage: $0 <datadir> <cmvn-ark> <mean.vec> <lda-transform> <xvecdir> <logdir> <dumpdir>"
