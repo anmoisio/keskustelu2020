@@ -40,7 +40,7 @@ train_stage=-10
 get_egs_stage=-10
 speed_perturb=true
 affix=7q
-nnet3_affix=_finetune
+nnet3_affix=_finetune_2layers
 
 # training options
 frames_per_eg=150,110,100
@@ -57,7 +57,7 @@ $speed_perturb && suffix=_sp
 train_set=am-train
 
 # model dir
-dir=exp/chain/tdnn${affix}${suffix}_finetuned_xvecs
+dir=exp/chain/tdnn${affix}${suffix}_finetuned_xvecs_2layers
 
 # features dir
 feat_dir=exp/nnet3${nnet3_affix}/xvectors_${train_set}_sp_hires/feat_dump_lda200_vad

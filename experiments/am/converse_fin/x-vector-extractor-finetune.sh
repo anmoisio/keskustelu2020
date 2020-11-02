@@ -62,7 +62,7 @@ if [ $stage -le 1 ]; then
   mkdir -p $dir/configs
   cat <<EOF > $dir/configs/network.xconfig
   ## adding new output layer
-  output-layer name=output input=tdnn7.relu include-log-softmax=true dim=${num_targets}
+  output-layer name=output input=tdnn7.batchnorm include-log-softmax=true dim=${num_targets}
 EOF
   steps/nnet3/xconfig_to_configs.py --existing-model $src_mdl \
     --xconfig-file  $dir/configs/network.xconfig  \
@@ -143,7 +143,7 @@ if [ $stage -le 4 ]; then
 fi
 
 if [ $stage -le 5 ]; then
-  for data in $test_sets ; do
+  for data in ${train_set}_sp ; do
     # apply LDA and concatenate the i-vectors to features
     xvecdir=exp/nnet3${nnet3_affix}/xvectors_${data}${xvec_suffix}
 

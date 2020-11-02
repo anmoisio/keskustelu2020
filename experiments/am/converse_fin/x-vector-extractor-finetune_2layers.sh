@@ -21,7 +21,8 @@ nj_extractor=30
 num_processes_extractor=1
 num_threads_extractor=1
 
-dir=exp/xvector_nnet_1a_finetune
+dir=exp/xvector_nnet_1a_finetune_2layers
+nnet3_affix=_finetune_2layers
 
 # training data
 train_data=data/am-train_sp_hires_voxceleb_xvec
@@ -36,6 +37,11 @@ egs_dir=exp/xvector_nnet_1a/egs
 
 # source domain pretrained model
 src_mdl=0007_voxceleb_v2_1a/exp/xvector_nnet_1a/final.raw
+
+primary_lr_factor=0.25 # The learning-rate factor for transferred layers from source
+                       # model. e.g. if 0, the paramters transferred from source model
+                       # are fixed.
+                       # The learning-rate factor for new added layers is 1.0.
 
 dropout_schedule='0,0@0.20,0.1@0.50,0'
 srand=123
@@ -61,16 +67,19 @@ if [ $stage -le 1 ]; then
   mkdir -p $dir
   mkdir -p $dir/configs
   cat <<EOF > $dir/configs/network.xconfig
-  ## adding new output layer
-  output-layer name=output input=tdnn7.relu include-log-softmax=true dim=${num_targets}
+  ## adding new last hidden and output layers
+  relu-batchnorm-layer name=tdnn7 input=tdnn6.batchnorm dim=512
+  output-layer name=output include-log-softmax=true dim=${num_targets}
 EOF
   steps/nnet3/xconfig_to_configs.py --existing-model $src_mdl \
     --xconfig-file  $dir/configs/network.xconfig  \
     --config-dir $dir/configs
 
+  # Set the learning-rate-factor to be primary_lr_factor for transferred layers "
+  # and adding new layers to them.
   $train_cmd $dir/log/generate_input_mdl.log \
-    nnet3-copy $src_mdl - \| \
-      nnet3-init --srand=$srand - $dir/configs/final.config $dir/input.raw  || exit 1;
+    nnet3-copy --edits="set-learning-rate-factor name=* learning-rate-factor=$primary_lr_factor" $src_mdl - \| \
+      nnet3-init --srand=1 - $dir/configs/final.config $dir/input.raw  || exit 1;
 fi
 
 if [ $stage -le 2 ]; then
@@ -86,7 +95,7 @@ if [ $stage -le 2 ]; then
     --trainer.optimization.minibatch-size=64 \
     --trainer.srand=$srand \
     --trainer.max-param-change=2 \
-    --trainer.num-epochs=1 \
+    --trainer.num-epochs=2 \
     --trainer.dropout-schedule="$dropout_schedule" \
     --trainer.shuffle-buffer-size=1000 \
     --egs.frames-per-eg=1 \
@@ -97,7 +106,6 @@ if [ $stage -le 2 ]; then
     --dir=$dir  || exit 1;
 fi
 
-nnet3_affix=_finetune
 xvec_suffix=_hires
 extractor_dir=$dir
 
@@ -143,7 +151,7 @@ if [ $stage -le 4 ]; then
 fi
 
 if [ $stage -le 5 ]; then
-  for data in $test_sets ; do
+  for data in ${train_set}_sp  ; do
     # apply LDA and concatenate the i-vectors to features
     xvecdir=exp/nnet3${nnet3_affix}/xvectors_${data}${xvec_suffix}
 
