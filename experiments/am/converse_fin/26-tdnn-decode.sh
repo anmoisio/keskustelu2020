@@ -15,15 +15,15 @@ cd "${EXPT_SCRIPT_DIR}"
 # nnet3_affix=_offline
 
 decode_sets=eval 
-dir=exp/chain/tdnn7q_sp_xvecs_lda200_vad
-for decode_set in $decode_sets; do
-    steps/nnet3/decode.sh --nj 8 --cmd "$decode_cmd" \
-        --acwt 1.0 \
-        --post-decode-acwt 10.0 \
-        $dir/graph_word_fullvocab \
-        exp/nnet3${nnet3_affix}/xvectors_${decode_set}_hires_conv/feat_dump_lda200_vad \
-        $dir/decode_${decode_set}_word_fullvocab
-done
+# dir=exp/chain/tdnn7q_sp_xvecs_lda200_vad
+# for decode_set in $decode_sets; do
+#     steps/nnet3/decode.sh --nj 8 --cmd "$decode_cmd" \
+#         --acwt 1.0 \
+#         --post-decode-acwt 10.0 \
+#         $dir/graph_word_fullvocab \
+#         exp/nnet3${nnet3_affix}/xvectors_${decode_set}_hires_conv/feat_dump_lda200_vad \
+#         $dir/decode_${decode_set}_word_fullvocab
+# done
 
 # dir=exp/chain/tdnn7q_sp_offline
 # for decode_set in $decode_sets; do
@@ -67,16 +67,16 @@ done
 #         $dir/decode_${decode_set}_word_fullvocab
 # done
 
-# dir=exp/chain/tdnn7q_sp_psmitivecs
-# for decode_set in $decode_sets; do
-#     steps/nnet3/decode.sh --nj 8 --cmd "$decode_cmd" \
-#         --acwt 1.0 \
-#         --post-decode-acwt 10.0 \
-#         --online-ivector-dir exp/nnet3/ivectors_${decode_set}_hires_psmit \
-#         $dir/graph_word_fullvocab \
-#         data/${decode_set}_hires \
-#         $dir/decode_${decode_set}_word_fullvocab
-# done
+dir=exp/chain/tdnn7q_sp_psmitivecs
+for decode_set in $decode_sets; do
+    steps/nnet3/decode.sh --nj 8 --cmd "$decode_cmd" \
+        --acwt 1.0 \
+        --post-decode-acwt 10.0 \
+        --online-ivector-dir exp/nnet3/ivectors_${decode_set}_hires_psmit \
+        $dir/graph_word_fullvocab \
+        data/${decode_set}_hires \
+        $dir/decode_${decode_set}_word_fullvocab
+done
 
 # dir=exp/chain/tdnn7q_sp_vcivecs_lda100
 # for decode_set in $decode_sets; do

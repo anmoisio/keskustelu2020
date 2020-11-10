@@ -1,6 +1,6 @@
 #!/bin/bash -e
 #SBATCH --partition batch
-#SBATCH --time=2:00:00
+#SBATCH --time=16:00:00
 #SBATCH --mem=38G
 
 source ../../../scripts/run-expt.sh "${0}"
@@ -13,7 +13,7 @@ module list
 . ./path.sh
 . ./utils/parse_options.sh
 
-dir=exp/chain/tdnn7q_sp_finetuned_xvecs_2layers
+dir=exp/chain/tdnn7q_sp_finetuned_xvecs_lr0.0002
 
 utils/lang/check_phones_compatible.sh \
     data/lang_chain/phones.txt \

@@ -1,0 +1,351 @@
+Experiment: am/converse_fin
+Job ID: 56340888
+Task ID: 
+Host: pe83.int.triton.aalto.fi
+Start date: Mon Nov  2 14:10:22 EET 2020
+Work directory: /scratch/work/moisioa3/conv_lm/experiments/am/converse_fin
+Temporary directory: /tmp/56340888
+
+Currently Loaded Modules:
+  1) GCCcore/6.4.0
+  2) binutils/2.28-GCCcore-6.4.0
+  3) GCC/6.4.0-2.28
+  4) openfst/1.6.6-GCC-6.4.0
+  5) OpenBLAS/0.2.20-GCC-6.4.0-2.28
+  6) CUDA/9.0.176
+  7) CUB/1.8.0
+  8) sctk/2.4.10
+  9) sph2pipe/2.5
+ 10) kaldi-2020/5968b4c-GCC-6.4.0-2.28-OPENBLAS
+ 11) anaconda3/latest
+
+ 
+
+Package                            Version                 
+---------------------------------- ------------------------
+-cipy                              1.2.1                   
+absl-py                            0.7.1                   
+alabaster                          0.7.12                  
+anaconda-client                    1.7.2                   
+anaconda-navigator                 1.9.7                   
+anaconda-project                   0.8.2                   
+appdirs                            1.4.3                   
+asn1crypto                         0.24.0                  
+astor                              0.7.1                   
+astroid                            2.4.2                   
+astropy                            3.1.2                   
+atomicwrites                       1.3.0                   
+attrs                              19.1.0                  
+Automat                            0.7.0                   
+Babel                              2.7.0                   
+backcall                           0.1.0                   
+backports.os                       0.1.1                   
+backports.shutil-get-terminal-size 1.0.0                   
+backports.weakref                  1.0.post1               
+bash-kernel                        0.7.1                   
+bcolz                              1.2.1                   
+bcrypt                             3.1.6                   
+beautifulsoup4                     4.7.1                   
+bitarray                           0.9.3                   
+bkcharts                           0.2                     
+blaze                              0.11.3                  
+bleach                             3.1.0                   
+bokeh                              1.2.0                   
+boto                               2.49.0                  
+boto3                              1.9.162                 
+botocore                           1.12.163                
+Bottleneck                         1.2.1                   
+brainiak                           0.8                     
+bz2file                            0.98                    
+cdlib                              0.1.7                   
+certifi                            2019.6.16               
+cffi                               1.12.3                  
+chardet                            3.0.4                   
+Click                              7.0                     
+cloudpickle                        1.1.1                   
+clyent                             1.2.2                   
+colorama                           0.4.1                   
+conda                              4.7.10                  
+conda-package-handling             1.3.10                  
+constantly                         15.1.0                  
+contextlib2                        0.5.5                   
+coverage                           4.5.3                   
+cryptography                       2.7                     
+cryptography-vectors               2.7                     
+cycler                             0.10.0                  
+Cython                             0.29.10                 
+cytoolz                            0.9.0.1                 
+dask                               1.2.2                   
+datashape                          0.5.4                   
+decorator                          4.4.0                   
+defusedxml                         0.6.0                   
+demon                              2.0.4                   
+dill                               0.2.9                   
+distributed                        1.28.1                  
+docopt                             0.6.2                   
+docutils                           0.14                    
+entrypoints                        0.3                     
+et-xmlfile                         1.0.1                   
+fastcache                          1.1.0                   
+Flask                              1.0.3                   
+Flask-Cors                         3.0.7                   
+future                             0.17.1                  
+gast                               0.2.2                   
+gensim                             3.4.0                   
+gevent                             1.4.0                   
+gmpy2                              2.0.8                   
+GPUtil                             1.4.0                   
+GPy                                1.9.8                   
+greenlet                           0.4.15                  
+grpcio                             1.16.1                  
+gym                                0.12.0                  
+h5py                               2.9.0                   
+heapdict                           1.0.0                   
+html5lib                           1.0.1                   
+hyperlink                          19.0.0                  
+hypothesis                         4.23.6                  
+idna                               2.8                     
+imageio                            2.5.0                   
+imagesize                          1.1.0                   
+importlib-metadata                 0.17                    
+incremental                        17.5.0                  
+ipykernel                          5.1.1                   
+ipyparallel                        6.2.4                   
+ipython                            7.5.0                   
+ipython-genutils                   0.2.0                   
+ipywidgets                         7.4.2                   
+isort                              5.5.4                   
+itsdangerous                       1.1.0                   
+jdcal                              1.4.1                   
+jedi                               0.13.3                  
+jeepney                            0.4                     
+Jinja2                             2.10.1                  
+jmespath                           0.9.4                   
+joblib                             0.13.2                  
+jsonschema                         3.0.1                   
+jupyter                            1.0.0                   
+jupyter-client                     5.2.4                   
+jupyter-console                    6.0.0                   
+jupyter-core                       4.4.0                   
+jupyterlab                         0.35.5                  
+jupyterlab-server                  0.2.0                   
+kaldi-io                           0.9.4                   
+Keras                              2.2.4                   
+Keras-Applications                 1.0.8                   
+Keras-Preprocessing                1.1.0                   
+keyring                            18.0.0                  
+kiwisolver                         1.1.0                   
+lazy-object-proxy                  1.4.3                   
+leidenalg                          0.7.0                   
+libarchive-c                       2.8                     
+llvmlite                           0.28.0                  
+locket                             0.2.0                   
+lxml                               4.3.3                   
+Mako                               1.0.10                  
+Markdown                           3.1.1                   
+MarkupSafe                         1.1.1                   
+matlab-kernel                      0.15.0                  
+matplotlib                         3.1.0                   
+mccabe                             0.6.1                   
+metakernel                         0.23.0                  
+mistune                            0.8.4                   
+mkl-fft                            1.0.12                  
+mkl-random                         1.0.2                   
+mkl-service                        2.0.2                   
+mne                                0.17.1                  
+mock                               3.0.5                   
+more-itertools                     7.0.0                   
+mpi4py                             2.0.0                   
+mpmath                             1.1.0                   
+msgpack                            0.6.1                   
+multipledispatch                   0.6.0                   
+navigator-updater                  0.2.1                   
+nbconvert                          5.5.0                   
+nbformat                           4.4.0                   
+networkx                           2.3                     
+nf1                                0.0.3                   
+nibabel                            2.4.1                   
+nitime                             0.7                     
+nltk                               3.4.1                   
+nose                               1.3.7                   
+notebook                           5.7.8                   
+numba                              0.43.1                  
+numexpr                            2.6.9                   
+numpy                              1.16.4                  
+numpydoc                           0.9.1                   
+odo                                0.5.1                   
+olefile                            0.46                    
+omega-index-py3                    0.3                     
+openpyxl                           2.6.2                   
+packaging                          19.0                    
+pandas                             0.24.2                  
+pandocfilters                      1.4.2                   
+paramz                             0.9.5                   
+parso                              0.4.0                   
+partd                              0.3.10                  
+path.py                            12.0.1                  
+pathlib2                           2.3.3                   
+patsy                              0.5.1                   
+pbr                                5.1.3                   
+pep8                               1.7.1                   
+pexpect                            4.7.0                   
+phonopy                            1.11.12.73              
+pickleshare                        0.7.5                   
+Pillow                             6.0.0                   
+pip                                19.1.1                  
+plotly                             3.10.0                  
+pluggy                             0.12.0                  
+ply                                3.11                    
+pquality                           0.0.7                   
+prometheus-client                  0.6.0                   
+prompt-toolkit                     2.0.9                   
+protobuf                           3.8.0                   
+psutil                             5.6.2                   
+ptyprocess                         0.6.0                   
+PuLP                               1.6.10                  
+py                                 1.8.0                   
+pyasn1                             0.4.5                   
+pyasn1-modules                     0.2.4                   
+pybind11                           2.2.4                   
+pycodestyle                        2.5.0                   
+pycosat                            0.6.3                   
+pycparser                          2.19                    
+pycrypto                           2.6.1                   
+pycurl                             7.43.0.2                
+pydicom                            1.2.2                   
+pyflakes                           2.1.1                   
+pyglet                             1.3.2                   
+Pygments                           2.4.2                   
+pygpu                              0.7.6                   
+PyHamcrest                         1.9.0                   
+pykeops                            1.4.1                   
+pylint                             2.6.0                   
+pymanopt                           0.2.3                   
+Pympler                            0.7                     
+pymvpa2                            2.6.1                   
+pyodbc                             4.0.26                  
+pyOpenSSL                          19.0.0                  
+pyparsing                          2.4.0                   
+pyrsistent                         0.14.11                 
+PySocks                            1.7.0                   
+pytest                             4.6.2                   
+pytest-arraydiff                   0.3                     
+pytest-astropy                     0.5.0                   
+pytest-doctestplus                 0.3.0                   
+pytest-openfiles                   0.3.2                   
+pytest-remotedata                  0.3.1                   
+python-dateutil                    2.8.0                   
+python-igraph                      0.7.1.post6             
+python-louvain                     0.13                    
+pytz                               2019.1                  
+PyWavelets                         1.0.3                   
+PyYAML                             5.1                     
+pyzmq                              18.0.0                  
+QtAwesome                          0.5.7                   
+qtconsole                          4.5.1                   
+QtPy                               1.7.1                   
+requests                           2.22.0                  
+retrying                           1.3.3                   
+roboschool                         1.0.39                  
+rope                               0.14.0                  
+ruamel-yaml                        0.15.46                 
+s3transfer                         0.2.0                   
+scikit-image                       0.15.0                  
+scikit-learn                       0.22                    
+scipy                              1.3.0                   
+seaborn                            0.9.0                   
+SecretStorage                      3.1.1                   
+Send2Trash                         1.5.0                   
+service-identity                   18.1.0                  
+setuptools                         41.0.1                  
+simplegeneric                      0.8.1                   
+singledispatch                     3.4.0.3                 
+six                                1.15.0                  
+smart-open                         1.8.4                   
+snowballstemmer                    1.2.1                   
+sortedcollections                  1.1.2                   
+sortedcontainers                   2.1.0                   
+soupsieve                          1.8                     
+spherecluster                      0.1.7                   
+Sphinx                             1.7.5                   
+sphinx-rtd-theme                   0.4.3                   
+sphinxcontrib-applehelp            1.0.1                   
+sphinxcontrib-devhelp              1.0.1                   
+sphinxcontrib-htmlhelp             1.0.2                   
+sphinxcontrib-jsmath               1.0.1                   
+sphinxcontrib-qthelp               1.0.2                   
+sphinxcontrib-serializinghtml      1.1.3                   
+sphinxcontrib-websupport           1.1.2                   
+spyder                             3.3.3                   
+spyder-kernels                     0.4.2                   
+SQLAlchemy                         1.3.4                   
+statsmodels                        0.9.0                   
+sympy                              1.4                     
+tables                             3.5.2                   
+tblib                              1.4.0                   
+tensorboard                        1.13.1                  
+tensorflow                         1.13.1                  
+tensorflow-estimator               1.13.0                  
+termcolor                          1.1.0                   
+terminado                          0.8.2                   
+testpath                           0.4.2                   
+Theano                             1.0.3+2.g3e47d39ac.dirty
+toml                               0.10.1                  
+toolz                              0.9.0                   
+torch                              1.0.0                   
+torchvision                        0.2.2                   
+tornado                            6.0.2                   
+tqdm                               4.32.2                  
+traitlets                          4.3.2                   
+Twisted                            19.2.0                  
+typed-ast                          1.4.1                   
+typing                             3.6.4                   
+unicodecsv                         0.14.1                  
+urllib3                            1.24.2                  
+vtk                                8.2.0                   
+wcwidth                            0.1.7                   
+webencodings                       0.5.1                   
+Werkzeug                           0.15.4                  
+wheel                              0.33.4                  
+widgetsnbextension                 3.4.2                   
+wrapt                              1.12.1                  
+wurlitzer                          1.0.2                   
+xlrd                               1.2.0                   
+XlsxWriter                         1.1.8                   
+xlwt                               1.3.0                   
+zict                               0.1.4                   
+zipp                               0.5.1                   
+zope.interface                     4.6.0                   
+/home/moisioa3/.local/lib/python3.6/site-packages/sklearn/utils/deprecation.py:144: FutureWarning: The sklearn.cluster.k_means_ module is  deprecated in version 0.22 and will be removed in version 0.24. The corresponding classes / functions should instead be imported from sklearn.cluster. Anything that cannot be imported from sklearn.cluster is now part of the private API.
+  warnings.warn(message, FutureWarning)
+/home/moisioa3/.local/lib/python3.6/site-packages/sklearn/externals/joblib/__init__.py:15: FutureWarning: sklearn.externals.joblib is deprecated in 0.21 and will be removed in 0.23. Please import this functionality directly from joblib, which can be installed with: pip install joblib. If this warning is raised when loading pickled models, you may need to re-serialize those models with scikit-learn 0.21+.
+  warnings.warn(msg, category=FutureWarning)
+x [[ 0.00327173  0.10508378  0.00686988 ...  0.03727468  0.00901215
+   0.05497473]
+ [ 0.04436027  0.11704853  0.03766061 ...  0.03681062  0.01833633
+   0.00810675]
+ [-0.05252198  0.09442138 -0.00158046 ...  0.00282208  0.02091284
+  -0.01775159]
+ ...
+ [-0.12618548  0.02287614  0.06500177 ... -0.0400902   0.04228402
+  -0.06844476]
+ [-0.08545083  0.0192138   0.10112065 ... -0.02158205 -0.08746409
+  -0.01919216]
+ [-0.14661158  0.0172354   0.10985043 ...  0.04198041 -0.04479374
+   0.01115714]]
+Traceback (most recent call last):
+  File "local/compute_ari_with_embeddings.py", line 70, in <module>
+    clustering_labels = get_spherical_clustering(embeddings, num_speakers)
+  File "local/compute_ari_with_embeddings.py", line 46, in get_spherical_clustering
+    skm.fit(embeddings)
+  File "/home/moisioa3/.local/lib/python3.6/site-packages/spherecluster/spherical_kmeans.py", line 364, in fit
+    return_n_iter=True,
+  File "/home/moisioa3/.local/lib/python3.6/site-packages/spherecluster/spherical_kmeans.py", line 190, in spherical_k_means
+    random_state=random_state,
+  File "/home/moisioa3/.local/lib/python3.6/site-packages/spherecluster/spherical_kmeans.py", line 40, in _spherical_kmeans_single_lloyd
+    sample_weight = _check_sample_weight(X, sample_weight)
+  File "/home/moisioa3/.local/lib/python3.6/site-packages/sklearn/utils/validation.py", line 1215, in _check_sample_weight
+    n_samples = _num_samples(X)
+  File "/home/moisioa3/.local/lib/python3.6/site-packages/sklearn/utils/validation.py", line 147, in _num_samples
+    raise TypeError(message)
+TypeError: Expected sequence or array-like, got <class 'NoneType'>

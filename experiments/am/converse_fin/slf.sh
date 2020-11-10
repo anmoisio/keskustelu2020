@@ -1,7 +1,7 @@
 #!/bin/bash -e
 #SBATCH --partition batch
-#SBATCH --time=2:00:00
-#SBATCH --mem=7G
+#SBATCH --time=20:00:00
+#SBATCH --mem=4G
 
 source ../../../scripts/run-expt.sh "${0}"
 source "${PROJECT_SCRIPT_DIR}/score-functions.sh"
@@ -71,12 +71,19 @@ results () {
 }
 
 # model=exp/chain/tdnn7q_sp_xvecs_lda200_vad
-decode_set=eval
+# decode_set=eval
 
 # for model in exp/chain/tdnn7q_sp{,_dsp,_noivecs,_vc*,_xvecs*}
-for model in exp/chain/tdnn7q_sp
+
+for decode_set in devel eval
 do
-    convert ${decode_set} $model
-    decode ${decode_set} $model
-    results ${decode_set} $model
+	for model in exp/chain/tdnn7q_sp*
+	do
+		if  ! [ -d ${model}/lattices_${decode_set}* ] 2> /dev/null && [ -d ${model}/decode_${decode_set}* ] ; then
+			echo ${decode_set} $model
+			convert ${decode_set} $model
+			decode ${decode_set} $model
+			results ${decode_set} $model
+		fi
+	done
 done

@@ -1,0 +1,26 @@
+Experiment: am/converse_fin
+Job ID: 56351071
+Task ID: 
+Host: csl48.int.triton.aalto.fi
+Start date: Wed Nov  4 13:03:49 EET 2020
+Work directory: /scratch/work/moisioa3/conv_lm/experiments/am/converse_fin
+Temporary directory: /tmp/56351071
+
+Currently Loaded Modules:
+  1) GCCcore/6.4.0
+  2) binutils/2.28-GCCcore-6.4.0
+  3) GCC/6.4.0-2.28
+  4) openfst/1.6.6-GCC-6.4.0
+  5) OpenBLAS/0.2.20-GCC-6.4.0-2.28
+  6) CUDA/9.0.176
+  7) CUB/1.8.0
+  8) sph2pipe/2.5
+  9) kaldi-2020/5968b4c-GCC-6.4.0-2.28-OPENBLAS
+ 10) anaconda3/latest
+ 11) speech-scripts/2016.05.24-b928230
+ 12) srilm/default
+ 13) sctk/2.4.10
+
+ 
+
+/var/spool/slurmd/job56351071/slurm_script: line 82: syntax error near unexpected token `!'

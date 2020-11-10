@@ -3,7 +3,6 @@ import sklearn
 import spherecluster
 import kaldi_io
 import numpy as np
-import ptpython.repl
 
 def read_embeddings(path):
   #very important to have the same
@@ -25,7 +24,8 @@ def read_utt2spk(path):
     for line in fi:
       utt, spk = line.strip().split()
       utts.append(utt)
-      spk = spk[:spk.index("-")] #HACK to actually get speaker id from Tedlium train 
+      # print(spk)
+      # spk = spk[:spk.index("-")] #HACK to actually get speaker id from Tedlium train 
       speakers.append(spk)
   return utts, speakers
 
@@ -57,6 +57,7 @@ if __name__ == "__main__":
   parser.add_argument("--num-rounds", type = int, help = "Number of spherical K-means rounds to average the ARI", default = 50)
   args = parser.parse_args()
   emb_utts, embeddings = read_embeddings(args.embeddings)
+  # print(embeddings)
   embeddings = normalize_embeddings(embeddings)
   utts, speakers = read_utt2spk(args.utt2spk)
   assert(len(utts) == len(emb_utts))

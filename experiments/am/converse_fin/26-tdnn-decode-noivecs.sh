@@ -14,8 +14,8 @@ cd "${EXPT_SCRIPT_DIR}"
 
 decode_sets="devel eval"
 
-dir=exp/chain/tdnn7q_sp_finetuned_xvecs_2layers
-nnet3_affix=_finetune
+dir=exp/chain/tdnn7q_sp_finetuned_xvecs_lr0.0002
+nnet3_affix=_finetune_lr0.0002
 for decode_set in $decode_sets; do
     steps/nnet3/decode.sh --nj 8 --cmd "$decode_cmd" \
         --acwt 1.0 \
