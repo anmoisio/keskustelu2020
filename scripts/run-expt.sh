@@ -5,15 +5,13 @@
 export LC_ALL=C
 
 read_expt_params () {
-	EXPT_NAME=$(basename "$(dirname ${EXPT_SCRIPT_DIR})")
-	EXPT_PARAMS="$(basename ${EXPT_SCRIPT_DIR})"
-	EXPT_WORK_DIR="${WORK_DIR}/conv_lm/experiments/${EXPT_NAME}/${EXPT_PARAMS}"
+	# EXPT_NAME=$(basename "$(dirname ${EXPT_SCRIPT_DIR})")
+	# EXPT_PARAMS="$(basename ${EXPT_SCRIPT_DIR})"
+	# EXPT_WORK_DIR="${WRKDIR}/keskustelu2020/experiments/${EXPT_NAME}/${EXPT_PARAMS}"
 
-	PROJECT_DIR="${WORK_DIR}/conv_lm"
+	PROJECT_DIR="${WRKDIR}/keskustelu2020"
 	PROJECT_SCRIPT_DIR="${PROJECT_DIR}/scripts"
-	RECTOOL_LNA_DIR="${PROJECT_DIR}/sanasto2016/lna"
-	RESULTS_DIR="${PROJECT_DIR}/results/${EXPT_NAME}/${EXPT_PARAMS}"
-
+	
 	source "${EXPT_SCRIPT_DIR}/params.sh"
 }
 

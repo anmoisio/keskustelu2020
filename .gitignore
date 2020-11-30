@@ -1,3 +1,6 @@
 data
 RIRS_NOISES
 test-env
+experiments/am/converse_fin/log/lstm-rescore*
+*.tar
+experiments/am/converse_fin/ASR-significance-test

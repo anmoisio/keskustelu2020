@@ -12,16 +12,16 @@ module list
 
 cd "${EXPT_SCRIPT_DIR}"
 
-decode_sets="devel eval"
+decode_sets=eval
 
-dir=exp/chain/tdnn7q_sp_finetuned_xvecs_lr0.0002
-nnet3_affix=_finetune_lr0.0002
+dir=exp/chain/tdnn7q_sp_vcivecs_lda100
+nnet3_affix=
 for decode_set in $decode_sets; do
     steps/nnet3/decode.sh --nj 8 --cmd "$decode_cmd" \
         --acwt 1.0 \
         --post-decode-acwt 10.0 \
         $dir/graph_word_fullvocab \
-        exp/nnet3${nnet3_affix}/xvectors_${decode_set}_hires/feat_dump_lda200_vad \
+        exp/nnet3${nnet3_affix}/ivectors_${decode_set}_hires_voxceleb/feat_dump_lda100_new \
         $dir/decode_${decode_set}_word_fullvocab
 done
 
