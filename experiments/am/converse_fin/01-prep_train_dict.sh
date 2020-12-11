@@ -11,5 +11,5 @@ module list
 . ./path.sh
 . ./utils/parse_options.sh
 
-local/prepare_dict_char.sh
+local/prepare_dict_morph.sh 
 

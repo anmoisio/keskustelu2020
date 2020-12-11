@@ -77,7 +77,7 @@ results () {
 
 for decode_set in devel eval
 do
-	for model in exp/chain/tdnn7q_sp_vcivecs_lda100
+	for model in exp/chain/tdnn7q_sp_ensemble_conv
 	do
 		if  ! [ -d ${model}/lattices_${decode_set}* ] 2> /dev/null && [ -d ${model}/decode_${decode_set}* ] ; then
 			echo ${decode_set} $model

@@ -1,10 +1,23 @@
 #!/bin/bash
 
+lm_file="/scratch/work/moisioa3/conv_lm/experiments/morph/srilm-5-gram/kn-ip-dsp-web.arpa.gz"
 # nosp = no silence & pronunciation probabilities
 dir=data/local/dict_morph_nosp
+
+. utils/parse_options.sh
+
+
+if [ $# != 2 ]; then
+    echo "Usage: $0 <lm> <dict-dir>"
+    exit 1;
+fi
+
+lm_file=$1
+dir=$2
+
+[ -d "${dir}" ] && echo "$0: ${dir} already exists" && exit 1;
 mkdir -p "${dir}"
 
-lm_file="/scratch/work/moisioa3/conv_lm/experiments/morph/srilm-5-gram/kn-ip-dsp-web.arpa.gz"
 # extract vocab from the LM
 vocab_file="${dir}/vocab.txt"
 echo "${vocab_file} :: $lm_file"

@@ -8,7 +8,7 @@ log/mfcc-eval
 extractor_psmit
 spkemb-env
 test-env
-
+kaldi-utensils
 
 exp/*
 !exp/chain

@@ -1,7 +1,8 @@
 #!/bin/bash
 
-for lat_dir in exp/chain/tdnn7q_sp_ensemble2/lattices_eval_word_fullvocab
+for test_set in eval 
 do
+    lat_dir=exp/chain/tdnn7q_sp_ensemble2/lattices_${test_set}_word_fullvocab
     echo $lat_dir
 
     # folder_name=${PWD##*/}
@@ -22,9 +23,9 @@ do
     # rm -r $lat_dir/../${folder_name}.tar
     echo create tar file
     cd $lat_dir/lats
-    tar -czf "../../lattices_eval_word_fullvocab.tar" .
+    tar -czf "../../lattices_${test_set}_word_fullvocab.tar" .
 
-    # cd ..
-    # rm -r lats
-    # cd /m/triton/scratch/work/moisioa3/keskustelu2020/experiments/am/converse_fin
+    cd ..
+    rm -r lats
+    cd /m/triton/scratch/work/moisioa3/keskustelu2020/experiments/am/converse_fin
 done

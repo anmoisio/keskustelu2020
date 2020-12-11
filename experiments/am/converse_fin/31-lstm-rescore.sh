@@ -26,9 +26,9 @@ decode () {
 	local num_batches="128"
 	local batch_index="${SLURM_ARRAY_TASK_ID}"
 
-	for nnlm_weight in 1.0
+	for nnlm_weight in 0.5 1.0
 	do
-		for lm_scale in 10 
+		for lm_scale in 10 11
 		do
 			decode_theanolm "${nnlm_weight}" "${lm_scale}" \
 			                "${test_set}" \
@@ -44,11 +44,11 @@ module list
 export EXPT_NAME=tdnn7q_sp_ensemble2
 export EXPT_WORK_DIR="${WRKDIR}/keskustelu2020/experiments/am/converse_fin/exp/chain/${EXPT_NAME}/"
 
-lstm_dir=/scratch/work/moisioa3/conv_lm/experiments/theanolm-100k/expt10
+lstm_dir=/scratch/work/moisioa3/conv_lm/experiments/theanolm-100k/expt10-seq15
 source ${lstm_dir}/params.sh
 
 
-for test_set in eval
+for test_set in devel eval
 do
 	decode $test_set ${lstm_dir}/nnlm.h5 \
             ${EXPT_WORK_DIR}/lattices_${test_set}_word_fullvocab.tar

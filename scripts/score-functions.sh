@@ -389,7 +389,8 @@ decode_theanolm () {
 		vocab_format="words"
 	fi
 
-	out_dir="${EXPT_WORK_DIR}/decode-lstm/${test_set}/lambda=${nnlm_weight}-lms=${lm_scale}"
+	suffix=$(basename "${lattices_tar%.tar}")
+	out_dir="${EXPT_WORK_DIR}/decode-lstm-${suffix}/${test_set}/lambda=${nnlm_weight}-lms=${lm_scale}"
 	mkdir -p "${out_dir}"
 	out_file="${out_dir}/${batch_index}.trn"
 
@@ -485,6 +486,7 @@ decode_theanolm_devel () {
 
 collect_transcripts () {
 	local test_set="${1:-eval}"
+	local decode_dir="${2:-decode-lstm}"
 
 	[ -n "${EXPT_WORK_DIR}" ] || { echo "EXPT_WORK_DIR required." >&2; exit 1; }
 	[ -n "${RESULTS_DIR}" ] || { echo "RESULTS_DIR required." >&2; exit 1; }
@@ -494,7 +496,7 @@ collect_transcripts () {
 	local recombination_order="${RECOMBINATION_ORDER:-10}"
 	# local random_seed="${RANDOM_SEED}"
 
-	for in_dir in "${EXPT_WORK_DIR}/decode-lstm/${test_set}/"*
+	for in_dir in "${EXPT_WORK_DIR}/${decode_dir}/${test_set}/"*
 	do
 		if [ ! -d "${in_dir}" ]
 		then
