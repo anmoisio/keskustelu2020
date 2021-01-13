@@ -1,0 +1,73 @@
+
+
+                            McNemar test results
+                            ====================
+
+                                     exp/chain/tdnn7q_sp_ensemble_conv/trn_eval_word_fullvocab/lats-lms=11.trn
+
+                                  corr     incorr
+      exp/chain/tdnn7q_sp/trn_eval_word_fullvocab/lats-lms=11.trn      corr    97         18
+	                 incorr    22        404
+The NULL Hypothesis:
+
+     The number unique utterance errors are equal for both systems.
+
+Alternate Hypothesis:
+
+     The number of unique utterance errors for both systems are NOT equal.
+Decision Analysis:
+
+     Assumptions:
+        A1: The distibution of unique utterance errors
+            follows the binomial distribution for N fair coin tosses.
+
+     Rejection criterion:
+        Reject the null hypothesis at the 95% confidence level based
+        on the following critical values table.  N is the sum of the
+        unique utterance errors for both systems being compared and
+        MIN(uue) is the minimum number of unique utterance
+        foe either system.
+
+          MIN(uue)      P(MIN(uue) | N= 40)
+          --------      -------------------
+               0                 -  
+               1                 -  
+               2                 -  
+               3                 -  
+               4                 -  
+               5                 -  
+               6                 -  
+               7                 -  
+               8                 -  
+               9                 -  
+              10                 -  
+              11                 -  
+              12                 -  
+              13                 -  
+              14                 -  
+              15                 -  
+              16                 -  
+              17                 -  
+              18               0.001
+              19               0.001
+              20               0.002
+              21               0.003
+              22               0.005
+              23               0.007
+              24               0.012
+              25               0.018
+              26               0.027
+              27               0.040  <---  Null Hypothesis rejection threshold
+              28               0.059
+              29               0.084
+              30               0.114
+              31               0.156
+              32               0.208
+              33               0.271
+
+     Decision:
+        There were MIN(uue)=18 unique utterance errors, the probability of
+        it occuring is 0.001, therefore the null hypothesis is REJECTED
+        in favor of the Alternate Hypothesis.  Further, exp/chain/tdnn7q_sp_ensemble_conv/trn_eval_word_fullvocab/lats-lms=11.trn is the
+        better System.
+

@@ -1,0 +1,81 @@
+                    Sign Test Calculations Table Comparing                     
+Spkr Speaker Word Error Rate (%) Percentages for Systems exp/chain/tdnn7q_sp_xvecs_lda200_vad/trn_eval_word_fullvocab/lats-lms=11.trn and exp/chain/tdnn7q_sp_ensemble_conv/trn_eval_word_fullvocab/lats-lms=11.trn
+                  (Threshold for equal percentages +- 0.005)                   
+
+                                                                                                                                                                                                                                                        Difference Sign                                                                      
+     Spkr          exp/chain/tdnn7q_sp_xvecs_lda200_vad/trn_eval_word_fullvocab/lats-lms=11.trn     exp/chain/tdnn7q_sp_ensemble_conv/trn_eval_word_fullvocab/lats-lms=11.trn      [exp/chain/tdnn7q_sp_xvecs_lda200_vad/trn_eval_word_fullvocab/lats-lms=11.trn - exp/chain/tdnn7q_sp_ensemble_conv/trn_eval_word_fullvocab/lats-lms=11.trn]
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ radioruudolf                                          34.72                                                                           33.00                                                                                                                   +                                                                             
+  radioporni                                           30.63                                                                           30.33                                                                                                                   +                                                                             
+    dspm051                                            16.14                                                                           17.19                                                                                                                   -                                                                             
+    dspm041                                            20.89                                                                           18.96                                                                                                                   +                                                                             
+    dspm053                                            24.49                                                                           24.87                                                                                                                   -                                                                             
+  radioerkka                                           34.25                                                                           31.90                                                                                                                   +                                                                             
+  radiohenri                                           20.95                                                                           19.76                                                                                                                   +                                                                             
+    dspm009                                            21.29                                                                           20.09                                                                                                                   +                                                                             
+    dspm003                                            32.16                                                                           29.52                                                                                                                   +                                                                             
+    dspm013                                            24.34                                                                           21.28                                                                                                                   +                                                                             
+    dspm038                                            25.87                                                                           25.22                                                                                                                   +                                                                             
+    dspm023                                            15.85                                                                           10.37                                                                                                                   +                                                                             
+    dspm030                                            27.93                                                                           27.12                                                                                                                   +                                                                             
+radiokatupaimen                                        23.51                                                                           24.77                                                                                                                   -                                                                             
+   radiojuha                                           28.09                                                                           33.71                                                                                                                   -                                                                             
+    dspf002                                            23.42                                                                           26.27                                                                                                                   -                                                                             
+    dspf001                                            29.17                                                                           26.97                                                                                                                   +                                                                             
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+     Avg.                                              25.51                                                                           24.78                                   
+
+No. Speakers with Positive Speaker Word Error Rate (%) Differences = N(+) = 12 
+No. Speakers with Negative Speaker Word Error Rate (%) Differences = N(-) =  5 
+   No. Speakers with No Speaker Word Error Rate (%) Differences = N(0) =  0    
+
+
+The NULL Hypothesis:
+
+     The number of speakers for which the differences is positive
+     equals the number of speakers for which the differences is
+     negative.
+			 P(N(+)) = P(N(-)) = 0.50
+
+Alternate Hypothesis:
+
+     The number of speakers for which the differences is positive 
+     is NOT equal to the number of speakers for which the difference
+     is negative.
+
+Decision Analysis:
+
+     Assumptions:
+        A1: The distibution of positive and negative differences
+            follows the binomial distribution for N fair coin tosses.
+
+        A2: In order to resolve the complication caused by cases where the
+            difference in Word Accuracy is zero, half of the cases will
+            be assigned to N(+) and half to N(-).  In the event of an
+            odd number of zero differences, N(-) will get one extra, this
+            reduces the probability of there being a difference between
+            the two systems.
+
+     Rejection criterion:
+        Reject the null hypothesis at the 95% confidence level based
+        on the following critical values table.  N is the number of
+        speakers being compared and N(-) is the number of negative
+        differences.
+
+          MIN(N(-),N(+))      P(MIN(N(-),N(+)) | N=17)
+          --------------      ------------------------
+            0                <0.001  
+            1                <0.001  
+            2                 0.002
+            3                 0.013
+            4                 0.049  <---  Null Hypothesis rejected at or below this point
+            5                 0.143
+            6                 0.332
+            7                 0.629
+            8                 1.000
+
+     Decision:
+        There were N(-)=5 negative differences , the probability of
+        it occuring is 0.143, therefore the null hypothesis is ACCEPTED
+        There is no statistical difference between exp/chain/tdnn7q_sp_xvecs_lda200_vad/trn_eval_word_fullvocab/lats-lms=11.trn and exp/chain/tdnn7q_sp_ensemble_conv/trn_eval_word_fullvocab/lats-lms=11.trn
+
