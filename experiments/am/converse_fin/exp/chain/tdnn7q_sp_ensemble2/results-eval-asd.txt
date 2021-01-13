@@ -1,0 +1,5 @@
+proj dir /scratch/work/moisioa3/keskustelu2020/scripts/..
+refs /scratch/work/moisioa3/keskustelu2020/scripts/../data/eval/normalized.trn
+params /scratch/work/moisioa3/keskustelu2020/experiments/am/converse_fin/exp/chain/tdnn7q_sp_ensemble2/results-lats-tpn=62-beam=650-order=22/eval/lambda=1.0-lms=10.trn
+lambda=1.0-lms=10
+      | Sum/Avg|  525    6100 | 79.4   15.2    5.4    3.0   23.6   75.6 |

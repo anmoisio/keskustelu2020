@@ -1,0 +1,13 @@
+proj dir /scratch/work/moisioa3/keskustelu2020/scripts/..
+refs /scratch/work/moisioa3/keskustelu2020/scripts/../data/devel/normalized.trn
+params exp/chain/tdnn7q_sp_ensemble2/trn_devel_morph_nosp_D=0.001-D2=0.002-cutoffs001/lats-lms=10-combined.trn exp/chain/tdnn7q_sp_ensemble2/trn_devel_morph_nosp_D=0.001-D2=0.002-cutoffs001/lats-lms=11-combined.trn exp/chain/tdnn7q_sp_ensemble2/trn_devel_morph_nosp_D=0.001-D2=0.002-cutoffs001/lats-lms=12-combined.trn exp/chain/tdnn7q_sp_ensemble2/trn_devel_morph_nosp_D=0.001-D2=0.002-cutoffs001/lats-lms=8-combined.trn exp/chain/tdnn7q_sp_ensemble2/trn_devel_morph_nosp_D=0.001-D2=0.002-cutoffs001/lats-lms=9-combined.trn
+lats-lms=10-combined
+      | Sum/Avg|  989   17233 | 78.7   15.6    5.6    3.9   25.2   85.6 |
+lats-lms=11-combined
+      | Sum/Avg|  989   17239 | 78.5   15.1    6.4    3.5   24.9   84.9 |
+lats-lms=12-combined
+      | Sum/Avg|  989   17235 | 77.9   14.5    7.5    3.1   25.2   85.0 |
+lats-lms=8-combined
+      | Sum/Avg|  989   17228 | 77.5   17.8    4.7    4.8   27.3   87.6 |
+lats-lms=9-combined
+      | Sum/Avg|  989   17229 | 78.3   16.6    5.1    4.4   26.1   86.1 |

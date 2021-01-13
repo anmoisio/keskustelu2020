@@ -1,0 +1,19 @@
+proj dir /scratch/work/moisioa3/keskustelu2020/scripts/..
+refs /scratch/work/moisioa3/keskustelu2020/scripts/../data/eval/normalized.trn
+params /scratch/work/moisioa3/keskustelu2020/experiments/am/converse_fin/exp/chain/tdnn7q_sp_ensemble2/results-morph-4-gram-lats-tpn=62-beam=650-order=22/eval/lambda=0.5-lms=10-combined.trn /scratch/work/moisioa3/keskustelu2020/experiments/am/converse_fin/exp/chain/tdnn7q_sp_ensemble2/results-morph-4-gram-lats-tpn=62-beam=650-order=22/eval/lambda=0.5-lms=10.trn /scratch/work/moisioa3/keskustelu2020/experiments/am/converse_fin/exp/chain/tdnn7q_sp_ensemble2/results-morph-4-gram-lats-tpn=62-beam=650-order=22/eval/lambda=0.5-lms=11-combined.trn /scratch/work/moisioa3/keskustelu2020/experiments/am/converse_fin/exp/chain/tdnn7q_sp_ensemble2/results-morph-4-gram-lats-tpn=62-beam=650-order=22/eval/lambda=0.5-lms=11.trn /scratch/work/moisioa3/keskustelu2020/experiments/am/converse_fin/exp/chain/tdnn7q_sp_ensemble2/results-morph-4-gram-lats-tpn=62-beam=650-order=22/eval/lambda=1.0-lms=10-combined.trn /scratch/work/moisioa3/keskustelu2020/experiments/am/converse_fin/exp/chain/tdnn7q_sp_ensemble2/results-morph-4-gram-lats-tpn=62-beam=650-order=22/eval/lambda=1.0-lms=10.trn /scratch/work/moisioa3/keskustelu2020/experiments/am/converse_fin/exp/chain/tdnn7q_sp_ensemble2/results-morph-4-gram-lats-tpn=62-beam=650-order=22/eval/lambda=1.0-lms=11-combined.trn /scratch/work/moisioa3/keskustelu2020/experiments/am/converse_fin/exp/chain/tdnn7q_sp_ensemble2/results-morph-4-gram-lats-tpn=62-beam=650-order=22/eval/lambda=1.0-lms=11.trn
+lambda=0.5-lms=10-combined
+      | Sum/Avg|  541    6310 | 80.0   13.8    6.1    2.6   22.5   76.2 |
+lambda=0.5-lms=10
+      | Sum/Avg|  541    6310 | 80.0   13.8    6.1    2.6   22.5   76.2 |
+lambda=0.5-lms=11-combined
+      | Sum/Avg|  541    6307 | 80.3   13.1    6.6    2.2   21.8   75.2 |
+lambda=0.5-lms=11
+      | Sum/Avg|  541    6307 | 80.3   13.1    6.6    2.2   21.8   75.2 |
+lambda=1.0-lms=10-combined
+      | Sum/Avg|  541    6307 | 80.9   13.9    5.2    2.8   21.9   75.0 |
+lambda=1.0-lms=10
+      | Sum/Avg|  541    6307 | 80.9   13.9    5.2    2.8   21.9   75.0 |
+lambda=1.0-lms=11-combined
+      | Sum/Avg|  541    6306 | 80.7   13.5    5.8    2.7   21.9   76.0 |
+lambda=1.0-lms=11
+      | Sum/Avg|  541    6306 | 80.7   13.5    5.8    2.7   21.9   76.0 |

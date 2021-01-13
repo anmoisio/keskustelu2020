@@ -1,0 +1,11 @@
+proj dir /scratch/work/moisioa3/keskustelu2020/scripts/..
+refs /scratch/work/moisioa3/keskustelu2020/scripts/../data/eval/normalized.trn
+params /scratch/work/moisioa3/keskustelu2020/experiments/am/converse_fin/exp/chain/tdnn7q_sp_ensemble2/results-lats-tpn=62-beam=650-order=22/eval/lambda=0.5-lms=10.trn /scratch/work/moisioa3/keskustelu2020/experiments/am/converse_fin/exp/chain/tdnn7q_sp_ensemble2/results-lats-tpn=62-beam=650-order=22/eval/lambda=0.5-lms=11.trn /scratch/work/moisioa3/keskustelu2020/experiments/am/converse_fin/exp/chain/tdnn7q_sp_ensemble2/results-lats-tpn=62-beam=650-order=22/eval/lambda=1.0-lms=10.trn /scratch/work/moisioa3/keskustelu2020/experiments/am/converse_fin/exp/chain/tdnn7q_sp_ensemble2/results-lats-tpn=62-beam=650-order=22/eval/lambda=1.0-lms=11.trn
+lambda=0.5-lms=10
+      | Sum/Avg|  541    6314 | 79.8   14.6    5.7    2.9   23.2   75.8 |
+lambda=0.5-lms=11
+      | Sum/Avg|  541    6309 | 80.2   13.6    6.2    2.6   22.4   74.7 |
+lambda=1.0-lms=10
+      | Sum/Avg|  541    6315 | 80.0   14.7    5.3    2.9   22.9   76.7 |
+lambda=1.0-lms=11
+      | Sum/Avg|  541    6315 | 80.1   13.9    6.0    2.6   22.5   76.3 |

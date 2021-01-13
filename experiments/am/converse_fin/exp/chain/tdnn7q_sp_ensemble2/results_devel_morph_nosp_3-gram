@@ -1,0 +1,14 @@
+Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for this output (/usr/share/lmod/lmod/init/bash)
+proj dir /scratch/work/moisioa3/keskustelu2020/scripts/..
+refs /scratch/work/moisioa3/keskustelu2020/scripts/../data/devel/normalized.trn
+params exp/chain/tdnn7q_sp_ensemble2/trn_devel_morph_nosp_3-gram/lats-lms=10-combined.trn exp/chain/tdnn7q_sp_ensemble2/trn_devel_morph_nosp_3-gram/lats-lms=11-combined.trn exp/chain/tdnn7q_sp_ensemble2/trn_devel_morph_nosp_3-gram/lats-lms=12-combined.trn exp/chain/tdnn7q_sp_ensemble2/trn_devel_morph_nosp_3-gram/lats-lms=8-combined.trn exp/chain/tdnn7q_sp_ensemble2/trn_devel_morph_nosp_3-gram/lats-lms=9-combined.trn
+lats-lms=10-combined
+      | Sum/Avg|  989   17232 | 78.7   15.7    5.6    4.0   25.4   85.0 |
+lats-lms=11-combined
+      | Sum/Avg|  989   17228 | 78.4   15.0    6.6    3.6   25.3   85.8 |
+lats-lms=12-combined
+      | Sum/Avg|  989   17222 | 78.1   14.5    7.4    3.2   25.2   85.6 |
+lats-lms=8-combined
+      | Sum/Avg|  989   17226 | 77.4   17.8    4.8    4.9   27.5   87.4 |
+lats-lms=9-combined
+      | Sum/Avg|  989   17228 | 78.3   16.6    5.0    4.4   26.1   85.6 |
