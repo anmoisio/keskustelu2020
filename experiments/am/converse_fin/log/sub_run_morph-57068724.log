@@ -1,0 +1,33 @@
+Experiment: /
+Job ID: 57068724
+Task ID: 
+Host: pe84.int.triton.aalto.fi
+Start date: Fri Dec  4 10:03:23 EET 2020
+Work directory: 
+Temporary directory: /tmp/57068724
+
+Currently Loaded Modules:
+  1) anaconda3/latest
+  2) speech-scripts/2016.05.24-b928230
+  3) srilm/default
+  4) GCCcore/6.4.0
+  5) binutils/2.28-GCCcore-6.4.0
+  6) GCC/6.4.0-2.28
+  7) openfst/1.6.6-GCC-6.4.0
+  8) OpenBLAS/0.2.20-GCC-6.4.0-2.28
+  9) CUDA/9.0.176
+ 10) CUB/1.8.0
+ 11) sctk/2.4.10
+ 12) sph2pipe/2.5
+ 13) kaldi-2020/5968b4c-GCC-6.4.0-2.28-OPENBLAS
+
+ 
+
+data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/vocab.txt :: data/D=0.001-D2=0.002-cutoffs001/kn.arpa.gz
+data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/lexicon.txt :: data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/vocab.txt
+data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/nonsilence_phones.txt :: data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/lexicon.txt
+data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/silence_phones.txt
+data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/optional_silence.txt
+data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/extra_questions.txt :: data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/<non>silence_phones.txt
+Usage: local/prepare_test_lang_morph.sh <lm> <dict-dir> <lang-dir>
+/var/spool/slurmd/job57068724/slurm_script: line 38: data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001: No such file or directory

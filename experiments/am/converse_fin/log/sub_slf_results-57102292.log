@@ -1,0 +1,28 @@
+Experiment: /
+Job ID: 57102292
+Task ID: 
+Host: ivb17.int.triton.aalto.fi
+Start date: Fri Dec  4 14:49:33 EET 2020
+Work directory: 
+Temporary directory: /tmp/57102292
+
+Currently Loaded Modules:
+  1) GCCcore/6.4.0
+  2) binutils/2.28-GCCcore-6.4.0
+  3) GCC/6.4.0-2.28
+  4) openfst/1.6.6-GCC-6.4.0
+  5) OpenBLAS/0.2.20-GCC-6.4.0-2.28
+  6) CUDA/9.0.176
+  7) CUB/1.8.0
+  8) sph2pipe/2.5
+  9) kaldi-2020/5968b4c-GCC-6.4.0-2.28-OPENBLAS
+ 10) anaconda3/latest
+ 11) speech-scripts/2016.05.24-b928230
+ 12) srilm/default
+ 13) sctk/2.4.10
+
+ 
+
++ lattice-tool -order 4 -in-lattice-list exp/chain/tdnn7q_sp_ensemble2/lattices_devel_morph_nosp_D=0.001-D2=0.002-cutoffs001/lattice-list -read-htk -viterbi-decode -write-refs - -debug 0 -htk-lmscale 8 -lm data/morph_lm_D=0.001-D2=0.002-cutoffs001/kn.arpa.gz
+data/morph_lm_D=0.001-D2=0.002-cutoffs001/kn.arpa.gz: No such file or directory
+Failed on line: 62 at command: decode-lattices.sh "${lattices_file}" > "${trn_file}"

@@ -1,0 +1,233 @@
+Experiment: /
+Job ID: 57068800
+Task ID: 
+Host: csl47.int.triton.aalto.fi
+Start date: Fri Dec  4 10:05:22 EET 2020
+Work directory: 
+Temporary directory: /tmp/57068800
+
+Currently Loaded Modules:
+  1) anaconda3/latest
+  2) speech-scripts/2016.05.24-b928230
+  3) srilm/default
+  4) GCCcore/6.4.0
+  5) binutils/2.28-GCCcore-6.4.0
+  6) GCC/6.4.0-2.28
+  7) openfst/1.6.6-GCC-6.4.0
+  8) OpenBLAS/0.2.20-GCC-6.4.0-2.28
+  9) CUDA/9.0.176
+ 10) CUB/1.8.0
+ 11) sctk/2.4.10
+ 12) sph2pipe/2.5
+ 13) kaldi-2020/5968b4c-GCC-6.4.0-2.28-OPENBLAS
+
+ 
+
+local/prepare_dict_morph.sh: data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001 already exists
+utils/prepare_lang.sh --num-extra-phone-disambig-syms 3 --phone-symbol-table data/lang/phones.txt data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001 [oov] data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/tmp data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001
+Checking data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/silence_phones.txt ...
+--> reading data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/silence_phones.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/silence_phones.txt is OK
+
+Checking data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/optional_silence.txt ...
+--> reading data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/optional_silence.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/optional_silence.txt is OK
+
+Checking data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/nonsilence_phones.txt ...
+--> reading data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/nonsilence_phones.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/nonsilence_phones.txt is OK
+
+Checking disjoint: silence_phones.txt, nonsilence_phones.txt
+--> disjoint property is OK.
+
+Checking data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/lexicon.txt
+--> reading data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/lexicon.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/lexicon.txt is OK
+
+Checking data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/extra_questions.txt ...
+--> reading data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/extra_questions.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/extra_questions.txt is OK
+--> SUCCESS [validating dictionary directory data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001]
+
+**Creating data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/lexiconp.txt from data/local/dict_morph_nosp_D=0.001-D2=0.002-cutoffs001/lexicon.txt
+fstaddselfloops data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/wdisambig_phones.int data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/wdisambig_words.int 
+prepare_lang.sh: validating output directory
+utils/validate_lang.pl data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001
+Checking existence of separator file
+separator file data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/subword_separator.txt is empty or does not exist, deal in word case.
+Checking data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones.txt ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones.txt is OK
+
+Checking words.txt: #0 ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/words.txt is OK
+
+Checking disjoint: silence.txt, nonsilence.txt, disambig.txt ...
+--> silence.txt and nonsilence.txt are disjoint
+--> silence.txt and disambig.txt are disjoint
+--> disambig.txt and nonsilence.txt are disjoint
+--> disjoint property is OK
+
+Checking sumation: silence.txt, nonsilence.txt, disambig.txt ...
+--> found no unexplainable phones in phones.txt
+
+Checking data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/context_indep.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 15 entry/entries in data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/context_indep.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/context_indep.int corresponds to data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/context_indep.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/context_indep.csl corresponds to data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/context_indep.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/context_indep.{txt, int, csl} are OK
+
+Checking data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/nonsilence.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 92 entry/entries in data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/nonsilence.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/nonsilence.int corresponds to data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/nonsilence.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/nonsilence.csl corresponds to data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/nonsilence.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/nonsilence.{txt, int, csl} are OK
+
+Checking data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/silence.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 15 entry/entries in data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/silence.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/silence.int corresponds to data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/silence.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/silence.csl corresponds to data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/silence.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/silence.{txt, int, csl} are OK
+
+Checking data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/optional_silence.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 1 entry/entries in data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/optional_silence.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/optional_silence.int corresponds to data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/optional_silence.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/optional_silence.csl corresponds to data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/optional_silence.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/optional_silence.{txt, int, csl} are OK
+
+Checking data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/disambig.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 16 entry/entries in data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/disambig.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/disambig.int corresponds to data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/disambig.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/disambig.csl corresponds to data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/disambig.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/disambig.{txt, int, csl} are OK
+
+Checking data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/roots.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 26 entry/entries in data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/roots.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/roots.int corresponds to data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/roots.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/roots.{txt, int} are OK
+
+Checking data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/sets.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 26 entry/entries in data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/sets.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/sets.int corresponds to data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/sets.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/sets.{txt, int} are OK
+
+Checking data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/extra_questions.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 11 entry/entries in data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/extra_questions.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/extra_questions.int corresponds to data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/extra_questions.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/extra_questions.{txt, int} are OK
+
+Checking data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/word_boundary.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 107 entry/entries in data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/word_boundary.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/word_boundary.int corresponds to data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/word_boundary.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/word_boundary.{txt, int} are OK
+
+Checking optional_silence.txt ...
+--> reading data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/optional_silence.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/optional_silence.txt is OK
+
+Checking disambiguation symbols: #0 and #1
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/disambig.txt has "#0" and "#1"
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/disambig.txt is OK
+
+Checking topo ...
+
+Checking word_boundary.txt: silence.txt, nonsilence.txt, disambig.txt ...
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/word_boundary.txt doesn't include disambiguation symbols
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/word_boundary.txt is the union of nonsilence.txt and silence.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/word_boundary.txt is OK
+
+Checking word-level disambiguation symbols...
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/wdisambig.txt exists (newer prepare_lang.sh)
+Checking word_boundary.int and disambig.int
+--> generating a 17 word/subword sequence
+--> resulting phone sequence from L.fst corresponds to the word sequence
+--> L.fst is OK
+--> generating a 75 word/subword sequence
+--> resulting phone sequence from L_disambig.fst corresponds to the word sequence
+--> L_disambig.fst is OK
+
+Checking data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/oov.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 1 entry/entries in data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/oov.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/oov.int corresponds to data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/oov.txt
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/oov.{txt, int} are OK
+
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/L.fst is olabel sorted
+--> data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/L_disambig.fst is olabel sorted
+--> SUCCESS [validating lang directory data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001]
+fstaddselfloops data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/wdisambig_phones.int data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/phones/wdisambig_words.int 
+arpa2fst --disambig-symbol=#0 --read-symbol-table=data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/words.txt - data/lang_test_morph_nosp_D=0.001-D2=0.002-cutoffs001/G.fst 
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:94) Reading \data\ section.
+LOG (arpa2fst[5.5.681~1-5968b]:HeaderAvailable():arpa-lm-compiler.cc:300) Reverting to slower state tracking because model is large: 38-gram with symbols up to 42703
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \1-grams: section.
+WARNING (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:219) line 21488 [-5.268047	<unk>] skipped: word '<unk>' not in symbol table
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \2-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \3-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \4-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \5-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \6-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \7-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \8-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \9-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \10-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \11-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \12-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \13-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \14-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \15-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \16-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \17-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \18-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \19-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \20-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \21-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \22-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \23-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \24-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \25-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \26-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \27-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \28-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \29-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \30-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \31-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \32-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \33-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \34-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \35-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \36-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \37-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \38-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:RemoveRedundantStates():arpa-lm-compiler.cc:359) Reduced num-states from 23113952 to 7283168

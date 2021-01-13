@@ -1,0 +1,48 @@
+Experiment: /
+Job ID: 57068260
+Task ID: 
+Host: csl48.int.triton.aalto.fi
+Start date: Fri Dec  4 09:51:13 EET 2020
+Work directory: 
+Temporary directory: /tmp/57068260
+
+Currently Loaded Modules:
+  1) GCCcore/6.4.0
+  2) binutils/2.28-GCCcore-6.4.0
+  3) GCC/6.4.0-2.28
+  4) openfst/1.6.6-GCC-6.4.0
+  5) OpenBLAS/0.2.20-GCC-6.4.0-2.28
+  6) CUDA/9.0.176
+  7) CUB/1.8.0
+  8) sctk/2.4.10
+  9) sph2pipe/2.5
+ 10) kaldi-2020/5968b4c-GCC-6.4.0-2.28-OPENBLAS
+
+ 
+
+tree-info exp/chain/tdnn7q_sp_ensemble2/tree 
+tree-info exp/chain/tdnn7q_sp_ensemble2/tree 
+fstdeterminizestar --use-log=true 
+fstpushspecial 
+fsttablecompose data/lang_test_morph_nosp/L_disambig.fst data/lang_test_morph_nosp/G.fst 
+fstminimizeencoded 
+fstisstochastic data/lang_test_morph_nosp/tmp/LG.fst 
+-0.0245537 -0.0254166
+[info]: LG not stochastic.
+fstcomposecontext --context-size=2 --central-position=1 --read-disambig-syms=data/lang_test_morph_nosp/phones/disambig.int --write-disambig-syms=data/lang_test_morph_nosp/tmp/disambig_ilabels_2_1.int data/lang_test_morph_nosp/tmp/ilabels_2_1.69450 data/lang_test_morph_nosp/tmp/LG.fst 
+fstisstochastic data/lang_test_morph_nosp/tmp/CLG_2_1.fst 
+-0.0245537 -0.0254166
+[info]: CLG not stochastic.
+make-h-transducer --disambig-syms-out=exp/chain/tdnn7q_sp_ensemble2/graph_morph_nosp_5-gram/disambig_tid.int --transition-scale=1.0 data/lang_test_morph_nosp/tmp/ilabels_2_1 exp/chain/tdnn7q_sp_ensemble2/tree exp/chain/tdnn7q_sp_ensemble2/final.mdl 
+fstminimizeencoded 
+fstdeterminizestar --use-log=true 
+fsttablecompose exp/chain/tdnn7q_sp_ensemble2/graph_morph_nosp_5-gram/Ha.fst data/lang_test_morph_nosp/tmp/CLG_2_1.fst 
+fstrmsymbols exp/chain/tdnn7q_sp_ensemble2/graph_morph_nosp_5-gram/disambig_tid.int 
+fstrmepslocal 
+fstisstochastic exp/chain/tdnn7q_sp_ensemble2/graph_morph_nosp_5-gram/HCLGa.fst 
+0.429331 -0.124606
+HCLGa is not stochastic
+add-self-loops --self-loop-scale=1.0 --reorder=true exp/chain/tdnn7q_sp_ensemble2/final.mdl exp/chain/tdnn7q_sp_ensemble2/graph_morph_nosp_5-gram/HCLGa.fst 
+fstisstochastic exp/chain/tdnn7q_sp_ensemble2/graph_morph_nosp_5-gram/HCLG.fst 
+0.429331 -0.124606
+[info]: final HCLG is not stochastic.

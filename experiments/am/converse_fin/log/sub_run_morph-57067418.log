@@ -1,0 +1,368 @@
+Experiment: /
+Job ID: 57067418
+Task ID: 
+Host: csl47.int.triton.aalto.fi
+Start date: Fri Dec  4 09:20:58 EET 2020
+Work directory: 
+Temporary directory: /tmp/57067418
+
+Currently Loaded Modules:
+  1) anaconda3/latest
+  2) speech-scripts/2016.05.24-b928230
+  3) srilm/default
+  4) GCCcore/6.4.0
+  5) binutils/2.28-GCCcore-6.4.0
+  6) GCC/6.4.0-2.28
+  7) openfst/1.6.6-GCC-6.4.0
+  8) OpenBLAS/0.2.20-GCC-6.4.0-2.28
+  9) CUDA/9.0.176
+ 10) CUB/1.8.0
+ 11) sctk/2.4.10
+ 12) sph2pipe/2.5
+ 13) kaldi-2020/5968b4c-GCC-6.4.0-2.28-OPENBLAS
+
+ 
+
+local/prepare_dict_morph.sh: data/local/dict_morph_nosp_3-gram already exists
+utils/prepare_lang.sh --num-extra-phone-disambig-syms 3 --phone-symbol-table data/lang/phones.txt data/local/dict_morph_nosp_3-gram [oov] data/lang_test_morph_nosp_3-gram/tmp data/lang_test_morph_nosp_3-gram
+Checking data/local/dict_morph_nosp_3-gram/silence_phones.txt ...
+--> reading data/local/dict_morph_nosp_3-gram/silence_phones.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp_3-gram/silence_phones.txt is OK
+
+Checking data/local/dict_morph_nosp_3-gram/optional_silence.txt ...
+--> reading data/local/dict_morph_nosp_3-gram/optional_silence.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp_3-gram/optional_silence.txt is OK
+
+Checking data/local/dict_morph_nosp_3-gram/nonsilence_phones.txt ...
+--> reading data/local/dict_morph_nosp_3-gram/nonsilence_phones.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp_3-gram/nonsilence_phones.txt is OK
+
+Checking disjoint: silence_phones.txt, nonsilence_phones.txt
+--> disjoint property is OK.
+
+Checking data/local/dict_morph_nosp_3-gram/lexicon.txt
+--> reading data/local/dict_morph_nosp_3-gram/lexicon.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp_3-gram/lexicon.txt is OK
+
+Checking data/local/dict_morph_nosp_3-gram/extra_questions.txt ...
+--> reading data/local/dict_morph_nosp_3-gram/extra_questions.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp_3-gram/extra_questions.txt is OK
+--> SUCCESS [validating dictionary directory data/local/dict_morph_nosp_3-gram]
+
+**Creating data/local/dict_morph_nosp_3-gram/lexiconp.txt from data/local/dict_morph_nosp_3-gram/lexicon.txt
+fstaddselfloops data/lang_test_morph_nosp_3-gram/phones/wdisambig_phones.int data/lang_test_morph_nosp_3-gram/phones/wdisambig_words.int 
+prepare_lang.sh: validating output directory
+utils/validate_lang.pl data/lang_test_morph_nosp_3-gram
+Checking existence of separator file
+separator file data/lang_test_morph_nosp_3-gram/subword_separator.txt is empty or does not exist, deal in word case.
+Checking data/lang_test_morph_nosp_3-gram/phones.txt ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/lang_test_morph_nosp_3-gram/phones.txt is OK
+
+Checking words.txt: #0 ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/lang_test_morph_nosp_3-gram/words.txt is OK
+
+Checking disjoint: silence.txt, nonsilence.txt, disambig.txt ...
+--> silence.txt and nonsilence.txt are disjoint
+--> silence.txt and disambig.txt are disjoint
+--> disambig.txt and nonsilence.txt are disjoint
+--> disjoint property is OK
+
+Checking sumation: silence.txt, nonsilence.txt, disambig.txt ...
+--> found no unexplainable phones in phones.txt
+
+Checking data/lang_test_morph_nosp_3-gram/phones/context_indep.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 15 entry/entries in data/lang_test_morph_nosp_3-gram/phones/context_indep.txt
+--> data/lang_test_morph_nosp_3-gram/phones/context_indep.int corresponds to data/lang_test_morph_nosp_3-gram/phones/context_indep.txt
+--> data/lang_test_morph_nosp_3-gram/phones/context_indep.csl corresponds to data/lang_test_morph_nosp_3-gram/phones/context_indep.txt
+--> data/lang_test_morph_nosp_3-gram/phones/context_indep.{txt, int, csl} are OK
+
+Checking data/lang_test_morph_nosp_3-gram/phones/nonsilence.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 92 entry/entries in data/lang_test_morph_nosp_3-gram/phones/nonsilence.txt
+--> data/lang_test_morph_nosp_3-gram/phones/nonsilence.int corresponds to data/lang_test_morph_nosp_3-gram/phones/nonsilence.txt
+--> data/lang_test_morph_nosp_3-gram/phones/nonsilence.csl corresponds to data/lang_test_morph_nosp_3-gram/phones/nonsilence.txt
+--> data/lang_test_morph_nosp_3-gram/phones/nonsilence.{txt, int, csl} are OK
+
+Checking data/lang_test_morph_nosp_3-gram/phones/silence.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 15 entry/entries in data/lang_test_morph_nosp_3-gram/phones/silence.txt
+--> data/lang_test_morph_nosp_3-gram/phones/silence.int corresponds to data/lang_test_morph_nosp_3-gram/phones/silence.txt
+--> data/lang_test_morph_nosp_3-gram/phones/silence.csl corresponds to data/lang_test_morph_nosp_3-gram/phones/silence.txt
+--> data/lang_test_morph_nosp_3-gram/phones/silence.{txt, int, csl} are OK
+
+Checking data/lang_test_morph_nosp_3-gram/phones/optional_silence.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 1 entry/entries in data/lang_test_morph_nosp_3-gram/phones/optional_silence.txt
+--> data/lang_test_morph_nosp_3-gram/phones/optional_silence.int corresponds to data/lang_test_morph_nosp_3-gram/phones/optional_silence.txt
+--> data/lang_test_morph_nosp_3-gram/phones/optional_silence.csl corresponds to data/lang_test_morph_nosp_3-gram/phones/optional_silence.txt
+--> data/lang_test_morph_nosp_3-gram/phones/optional_silence.{txt, int, csl} are OK
+
+Checking data/lang_test_morph_nosp_3-gram/phones/disambig.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 16 entry/entries in data/lang_test_morph_nosp_3-gram/phones/disambig.txt
+--> data/lang_test_morph_nosp_3-gram/phones/disambig.int corresponds to data/lang_test_morph_nosp_3-gram/phones/disambig.txt
+--> data/lang_test_morph_nosp_3-gram/phones/disambig.csl corresponds to data/lang_test_morph_nosp_3-gram/phones/disambig.txt
+--> data/lang_test_morph_nosp_3-gram/phones/disambig.{txt, int, csl} are OK
+
+Checking data/lang_test_morph_nosp_3-gram/phones/roots.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 26 entry/entries in data/lang_test_morph_nosp_3-gram/phones/roots.txt
+--> data/lang_test_morph_nosp_3-gram/phones/roots.int corresponds to data/lang_test_morph_nosp_3-gram/phones/roots.txt
+--> data/lang_test_morph_nosp_3-gram/phones/roots.{txt, int} are OK
+
+Checking data/lang_test_morph_nosp_3-gram/phones/sets.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 26 entry/entries in data/lang_test_morph_nosp_3-gram/phones/sets.txt
+--> data/lang_test_morph_nosp_3-gram/phones/sets.int corresponds to data/lang_test_morph_nosp_3-gram/phones/sets.txt
+--> data/lang_test_morph_nosp_3-gram/phones/sets.{txt, int} are OK
+
+Checking data/lang_test_morph_nosp_3-gram/phones/extra_questions.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 11 entry/entries in data/lang_test_morph_nosp_3-gram/phones/extra_questions.txt
+--> data/lang_test_morph_nosp_3-gram/phones/extra_questions.int corresponds to data/lang_test_morph_nosp_3-gram/phones/extra_questions.txt
+--> data/lang_test_morph_nosp_3-gram/phones/extra_questions.{txt, int} are OK
+
+Checking data/lang_test_morph_nosp_3-gram/phones/word_boundary.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 107 entry/entries in data/lang_test_morph_nosp_3-gram/phones/word_boundary.txt
+--> data/lang_test_morph_nosp_3-gram/phones/word_boundary.int corresponds to data/lang_test_morph_nosp_3-gram/phones/word_boundary.txt
+--> data/lang_test_morph_nosp_3-gram/phones/word_boundary.{txt, int} are OK
+
+Checking optional_silence.txt ...
+--> reading data/lang_test_morph_nosp_3-gram/phones/optional_silence.txt
+--> data/lang_test_morph_nosp_3-gram/phones/optional_silence.txt is OK
+
+Checking disambiguation symbols: #0 and #1
+--> data/lang_test_morph_nosp_3-gram/phones/disambig.txt has "#0" and "#1"
+--> data/lang_test_morph_nosp_3-gram/phones/disambig.txt is OK
+
+Checking topo ...
+
+Checking word_boundary.txt: silence.txt, nonsilence.txt, disambig.txt ...
+--> data/lang_test_morph_nosp_3-gram/phones/word_boundary.txt doesn't include disambiguation symbols
+--> data/lang_test_morph_nosp_3-gram/phones/word_boundary.txt is the union of nonsilence.txt and silence.txt
+--> data/lang_test_morph_nosp_3-gram/phones/word_boundary.txt is OK
+
+Checking word-level disambiguation symbols...
+--> data/lang_test_morph_nosp_3-gram/phones/wdisambig.txt exists (newer prepare_lang.sh)
+Checking word_boundary.int and disambig.int
+--> generating a 87 word/subword sequence
+--> resulting phone sequence from L.fst corresponds to the word sequence
+--> L.fst is OK
+--> generating a 1 word/subword sequence
+--> resulting phone sequence from L_disambig.fst corresponds to the word sequence
+--> L_disambig.fst is OK
+
+Checking data/lang_test_morph_nosp_3-gram/oov.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 1 entry/entries in data/lang_test_morph_nosp_3-gram/oov.txt
+--> data/lang_test_morph_nosp_3-gram/oov.int corresponds to data/lang_test_morph_nosp_3-gram/oov.txt
+--> data/lang_test_morph_nosp_3-gram/oov.{txt, int} are OK
+
+--> data/lang_test_morph_nosp_3-gram/L.fst is olabel sorted
+--> data/lang_test_morph_nosp_3-gram/L_disambig.fst is olabel sorted
+--> SUCCESS [validating lang directory data/lang_test_morph_nosp_3-gram]
+fstaddselfloops data/lang_test_morph_nosp_3-gram/phones/wdisambig_phones.int data/lang_test_morph_nosp_3-gram/phones/wdisambig_words.int 
+arpa2fst --disambig-symbol=#0 --read-symbol-table=data/lang_test_morph_nosp_3-gram/words.txt - data/lang_test_morph_nosp_3-gram/G.fst 
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:94) Reading \data\ section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \1-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \2-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \3-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:RemoveRedundantStates():arpa-lm-compiler.cc:359) Reduced num-states from 9058219 to 2335736
+local/prepare_dict_morph.sh: data/local/dict_morph_nosp_4-gram already exists
+utils/prepare_lang.sh --num-extra-phone-disambig-syms 3 --phone-symbol-table data/lang/phones.txt data/local/dict_morph_nosp_4-gram [oov] data/lang_test_morph_nosp_4-gram/tmp data/lang_test_morph_nosp_4-gram
+Checking data/local/dict_morph_nosp_4-gram/silence_phones.txt ...
+--> reading data/local/dict_morph_nosp_4-gram/silence_phones.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp_4-gram/silence_phones.txt is OK
+
+Checking data/local/dict_morph_nosp_4-gram/optional_silence.txt ...
+--> reading data/local/dict_morph_nosp_4-gram/optional_silence.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp_4-gram/optional_silence.txt is OK
+
+Checking data/local/dict_morph_nosp_4-gram/nonsilence_phones.txt ...
+--> reading data/local/dict_morph_nosp_4-gram/nonsilence_phones.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp_4-gram/nonsilence_phones.txt is OK
+
+Checking disjoint: silence_phones.txt, nonsilence_phones.txt
+--> disjoint property is OK.
+
+Checking data/local/dict_morph_nosp_4-gram/lexicon.txt
+--> reading data/local/dict_morph_nosp_4-gram/lexicon.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp_4-gram/lexicon.txt is OK
+
+Checking data/local/dict_morph_nosp_4-gram/extra_questions.txt ...
+--> reading data/local/dict_morph_nosp_4-gram/extra_questions.txt
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/local/dict_morph_nosp_4-gram/extra_questions.txt is OK
+--> SUCCESS [validating dictionary directory data/local/dict_morph_nosp_4-gram]
+
+**Creating data/local/dict_morph_nosp_4-gram/lexiconp.txt from data/local/dict_morph_nosp_4-gram/lexicon.txt
+fstaddselfloops data/lang_test_morph_nosp_4-gram/phones/wdisambig_phones.int data/lang_test_morph_nosp_4-gram/phones/wdisambig_words.int 
+prepare_lang.sh: validating output directory
+utils/validate_lang.pl data/lang_test_morph_nosp_4-gram
+Checking existence of separator file
+separator file data/lang_test_morph_nosp_4-gram/subword_separator.txt is empty or does not exist, deal in word case.
+Checking data/lang_test_morph_nosp_4-gram/phones.txt ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/lang_test_morph_nosp_4-gram/phones.txt is OK
+
+Checking words.txt: #0 ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> data/lang_test_morph_nosp_4-gram/words.txt is OK
+
+Checking disjoint: silence.txt, nonsilence.txt, disambig.txt ...
+--> silence.txt and nonsilence.txt are disjoint
+--> silence.txt and disambig.txt are disjoint
+--> disambig.txt and nonsilence.txt are disjoint
+--> disjoint property is OK
+
+Checking sumation: silence.txt, nonsilence.txt, disambig.txt ...
+--> found no unexplainable phones in phones.txt
+
+Checking data/lang_test_morph_nosp_4-gram/phones/context_indep.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 15 entry/entries in data/lang_test_morph_nosp_4-gram/phones/context_indep.txt
+--> data/lang_test_morph_nosp_4-gram/phones/context_indep.int corresponds to data/lang_test_morph_nosp_4-gram/phones/context_indep.txt
+--> data/lang_test_morph_nosp_4-gram/phones/context_indep.csl corresponds to data/lang_test_morph_nosp_4-gram/phones/context_indep.txt
+--> data/lang_test_morph_nosp_4-gram/phones/context_indep.{txt, int, csl} are OK
+
+Checking data/lang_test_morph_nosp_4-gram/phones/nonsilence.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 92 entry/entries in data/lang_test_morph_nosp_4-gram/phones/nonsilence.txt
+--> data/lang_test_morph_nosp_4-gram/phones/nonsilence.int corresponds to data/lang_test_morph_nosp_4-gram/phones/nonsilence.txt
+--> data/lang_test_morph_nosp_4-gram/phones/nonsilence.csl corresponds to data/lang_test_morph_nosp_4-gram/phones/nonsilence.txt
+--> data/lang_test_morph_nosp_4-gram/phones/nonsilence.{txt, int, csl} are OK
+
+Checking data/lang_test_morph_nosp_4-gram/phones/silence.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 15 entry/entries in data/lang_test_morph_nosp_4-gram/phones/silence.txt
+--> data/lang_test_morph_nosp_4-gram/phones/silence.int corresponds to data/lang_test_morph_nosp_4-gram/phones/silence.txt
+--> data/lang_test_morph_nosp_4-gram/phones/silence.csl corresponds to data/lang_test_morph_nosp_4-gram/phones/silence.txt
+--> data/lang_test_morph_nosp_4-gram/phones/silence.{txt, int, csl} are OK
+
+Checking data/lang_test_morph_nosp_4-gram/phones/optional_silence.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 1 entry/entries in data/lang_test_morph_nosp_4-gram/phones/optional_silence.txt
+--> data/lang_test_morph_nosp_4-gram/phones/optional_silence.int corresponds to data/lang_test_morph_nosp_4-gram/phones/optional_silence.txt
+--> data/lang_test_morph_nosp_4-gram/phones/optional_silence.csl corresponds to data/lang_test_morph_nosp_4-gram/phones/optional_silence.txt
+--> data/lang_test_morph_nosp_4-gram/phones/optional_silence.{txt, int, csl} are OK
+
+Checking data/lang_test_morph_nosp_4-gram/phones/disambig.{txt, int, csl} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 16 entry/entries in data/lang_test_morph_nosp_4-gram/phones/disambig.txt
+--> data/lang_test_morph_nosp_4-gram/phones/disambig.int corresponds to data/lang_test_morph_nosp_4-gram/phones/disambig.txt
+--> data/lang_test_morph_nosp_4-gram/phones/disambig.csl corresponds to data/lang_test_morph_nosp_4-gram/phones/disambig.txt
+--> data/lang_test_morph_nosp_4-gram/phones/disambig.{txt, int, csl} are OK
+
+Checking data/lang_test_morph_nosp_4-gram/phones/roots.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 26 entry/entries in data/lang_test_morph_nosp_4-gram/phones/roots.txt
+--> data/lang_test_morph_nosp_4-gram/phones/roots.int corresponds to data/lang_test_morph_nosp_4-gram/phones/roots.txt
+--> data/lang_test_morph_nosp_4-gram/phones/roots.{txt, int} are OK
+
+Checking data/lang_test_morph_nosp_4-gram/phones/sets.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 26 entry/entries in data/lang_test_morph_nosp_4-gram/phones/sets.txt
+--> data/lang_test_morph_nosp_4-gram/phones/sets.int corresponds to data/lang_test_morph_nosp_4-gram/phones/sets.txt
+--> data/lang_test_morph_nosp_4-gram/phones/sets.{txt, int} are OK
+
+Checking data/lang_test_morph_nosp_4-gram/phones/extra_questions.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 11 entry/entries in data/lang_test_morph_nosp_4-gram/phones/extra_questions.txt
+--> data/lang_test_morph_nosp_4-gram/phones/extra_questions.int corresponds to data/lang_test_morph_nosp_4-gram/phones/extra_questions.txt
+--> data/lang_test_morph_nosp_4-gram/phones/extra_questions.{txt, int} are OK
+
+Checking data/lang_test_morph_nosp_4-gram/phones/word_boundary.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 107 entry/entries in data/lang_test_morph_nosp_4-gram/phones/word_boundary.txt
+--> data/lang_test_morph_nosp_4-gram/phones/word_boundary.int corresponds to data/lang_test_morph_nosp_4-gram/phones/word_boundary.txt
+--> data/lang_test_morph_nosp_4-gram/phones/word_boundary.{txt, int} are OK
+
+Checking optional_silence.txt ...
+--> reading data/lang_test_morph_nosp_4-gram/phones/optional_silence.txt
+--> data/lang_test_morph_nosp_4-gram/phones/optional_silence.txt is OK
+
+Checking disambiguation symbols: #0 and #1
+--> data/lang_test_morph_nosp_4-gram/phones/disambig.txt has "#0" and "#1"
+--> data/lang_test_morph_nosp_4-gram/phones/disambig.txt is OK
+
+Checking topo ...
+
+Checking word_boundary.txt: silence.txt, nonsilence.txt, disambig.txt ...
+--> data/lang_test_morph_nosp_4-gram/phones/word_boundary.txt doesn't include disambiguation symbols
+--> data/lang_test_morph_nosp_4-gram/phones/word_boundary.txt is the union of nonsilence.txt and silence.txt
+--> data/lang_test_morph_nosp_4-gram/phones/word_boundary.txt is OK
+
+Checking word-level disambiguation symbols...
+--> data/lang_test_morph_nosp_4-gram/phones/wdisambig.txt exists (newer prepare_lang.sh)
+Checking word_boundary.int and disambig.int
+--> generating a 19 word/subword sequence
+--> resulting phone sequence from L.fst corresponds to the word sequence
+--> L.fst is OK
+--> generating a 66 word/subword sequence
+--> resulting phone sequence from L_disambig.fst corresponds to the word sequence
+--> L_disambig.fst is OK
+
+Checking data/lang_test_morph_nosp_4-gram/oov.{txt, int} ...
+--> text seems to be UTF-8 or ASCII, checking whitespaces
+--> text contains only allowed whitespaces
+--> 1 entry/entries in data/lang_test_morph_nosp_4-gram/oov.txt
+--> data/lang_test_morph_nosp_4-gram/oov.int corresponds to data/lang_test_morph_nosp_4-gram/oov.txt
+--> data/lang_test_morph_nosp_4-gram/oov.{txt, int} are OK
+
+--> data/lang_test_morph_nosp_4-gram/L.fst is olabel sorted
+--> data/lang_test_morph_nosp_4-gram/L_disambig.fst is olabel sorted
+--> SUCCESS [validating lang directory data/lang_test_morph_nosp_4-gram]
+fstaddselfloops data/lang_test_morph_nosp_4-gram/phones/wdisambig_phones.int data/lang_test_morph_nosp_4-gram/phones/wdisambig_words.int 
+arpa2fst --disambig-symbol=#0 --read-symbol-table=data/lang_test_morph_nosp_4-gram/words.txt - data/lang_test_morph_nosp_4-gram/G.fst 
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:94) Reading \data\ section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \1-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \2-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \3-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:Read():arpa-file-parser.cc:149) Reading \4-grams: section.
+LOG (arpa2fst[5.5.681~1-5968b]:RemoveRedundantStates():arpa-lm-compiler.cc:359) Reduced num-states from 18872771 to 6504054

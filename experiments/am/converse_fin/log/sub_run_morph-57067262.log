@@ -1,0 +1,41 @@
+Experiment: /
+Job ID: 57067262
+Task ID: 
+Host: csl47.int.triton.aalto.fi
+Start date: Fri Dec  4 09:13:48 EET 2020
+Work directory: 
+Temporary directory: /tmp/57067262
+
+Currently Loaded Modules:
+  1) anaconda3/latest
+  2) speech-scripts/2016.05.24-b928230
+  3) srilm/default
+  4) GCCcore/6.4.0
+  5) binutils/2.28-GCCcore-6.4.0
+  6) GCC/6.4.0-2.28
+  7) openfst/1.6.6-GCC-6.4.0
+  8) OpenBLAS/0.2.20-GCC-6.4.0-2.28
+  9) CUDA/9.0.176
+ 10) CUB/1.8.0
+ 11) sctk/2.4.10
+ 12) sph2pipe/2.5
+ 13) kaldi-2020/5968b4c-GCC-6.4.0-2.28-OPENBLAS
+
+ 
+
+data/local/dict_morph_nosp_3-gram/vocab.txt :: data/3-gram/kn-ip-dsp-web.arpa.gz
+gzip: data/3-gram/kn-ip-dsp-web.arpa.gz: No such file or directory
+data/local/dict_morph_nosp_3-gram/lexicon.txt :: data/local/dict_morph_nosp_3-gram/vocab.txt
+data/local/dict_morph_nosp_3-gram/nonsilence_phones.txt :: data/local/dict_morph_nosp_3-gram/lexicon.txt
+data/local/dict_morph_nosp_3-gram/silence_phones.txt
+data/local/dict_morph_nosp_3-gram/optional_silence.txt
+data/local/dict_morph_nosp_3-gram/extra_questions.txt :: data/local/dict_morph_nosp_3-gram/<non>silence_phones.txt
+/var/spool/slurmd/job57067262/slurm_script: line 25: local/prepare_test_lang_morph.sh: No such file or directory
+data/local/dict_morph_nosp_4-gram/vocab.txt :: data/4-gram/kn-ip-dsp-web.arpa.gz
+gzip: data/4-gram/kn-ip-dsp-web.arpa.gz: No such file or directory
+data/local/dict_morph_nosp_4-gram/lexicon.txt :: data/local/dict_morph_nosp_4-gram/vocab.txt
+data/local/dict_morph_nosp_4-gram/nonsilence_phones.txt :: data/local/dict_morph_nosp_4-gram/lexicon.txt
+data/local/dict_morph_nosp_4-gram/silence_phones.txt
+data/local/dict_morph_nosp_4-gram/optional_silence.txt
+data/local/dict_morph_nosp_4-gram/extra_questions.txt :: data/local/dict_morph_nosp_4-gram/<non>silence_phones.txt
+/var/spool/slurmd/job57067262/slurm_script: line 25: local/prepare_test_lang_morph.sh: No such file or directory

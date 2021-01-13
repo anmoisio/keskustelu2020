@@ -1,0 +1,41 @@
+Experiment: /
+Job ID: 57087945
+Task ID: 
+Host: ivb44.int.triton.aalto.fi
+Start date: Fri Dec  4 12:45:25 EET 2020
+Work directory: 
+Temporary directory: /tmp/57087945
+
+Currently Loaded Modules:
+  1) GCCcore/6.4.0
+  2) binutils/2.28-GCCcore-6.4.0
+  3) GCC/6.4.0-2.28
+  4) openfst/1.6.6-GCC-6.4.0
+  5) OpenBLAS/0.2.20-GCC-6.4.0-2.28
+  6) CUDA/9.0.176
+  7) CUB/1.8.0
+  8) sph2pipe/2.5
+  9) kaldi-2020/5968b4c-GCC-6.4.0-2.28-OPENBLAS
+ 10) anaconda3/latest
+ 11) speech-scripts/2016.05.24-b928230
+ 12) srilm/default
+ 13) sctk/2.4.10
+
+ 
+
+devel exp/chain/tdnn7q_sp_ensemble2 _morph_nosp_3-gram
+local/convert_slf_parallel.sh --cmd utils/slurm.pl --mem 16G --time 1:00:00 data/devel data/lang_test_morph_nosp_3-gram exp/chain/tdnn7q_sp_ensemble2/decode_devel_morph_nosp_3-gram
+local/convert_slf_parallel.sh: Converting lattices into 'exp/chain/tdnn7q_sp_ensemble2/decode_devel_morph_nosp_3-gram/lats-in-htk-slf'
+segments 989, saved-lattices 989
+success, converted lats to HTK : exp/chain/tdnn7q_sp_ensemble2/decode_devel_morph_nosp_3-gram/lats-in-htk-slf/lat_htk.scp
+Wrote exp/chain/tdnn7q_sp_ensemble2/lattices_devel_morph_nosp_3-gram/lattice-list.
+devel exp/chain/tdnn7q_sp_ensemble2 _morph_nosp_4-gram
+local/convert_slf_parallel.sh --cmd utils/slurm.pl --mem 16G --time 1:00:00 data/devel data/lang_test_morph_nosp_4-gram exp/chain/tdnn7q_sp_ensemble2/decode_devel_morph_nosp_4-gram
+local/convert_slf_parallel.sh: Converting lattices into 'exp/chain/tdnn7q_sp_ensemble2/decode_devel_morph_nosp_4-gram/lats-in-htk-slf'
+segments 989, saved-lattices 989
+success, converted lats to HTK : exp/chain/tdnn7q_sp_ensemble2/decode_devel_morph_nosp_4-gram/lats-in-htk-slf/lat_htk.scp
+Wrote exp/chain/tdnn7q_sp_ensemble2/lattices_devel_morph_nosp_4-gram/lattice-list.
+devel exp/chain/tdnn7q_sp_ensemble2 _morph_nosp_5-gram
+local/convert_slf_parallel.sh --cmd utils/slurm.pl --mem 16G --time 1:00:00 data/devel data/lang_test_morph_nosp_5-gram exp/chain/tdnn7q_sp_ensemble2/decode_devel_morph_nosp_5-gram
+local/convert_slf_parallel.sh: expecting file data/lang_test_morph_nosp_5-gram/words.txt to exist
+Failed on line: 30 at command: local/convert_slf_parallel.sh --cmd "${decode_cmd}" data/${test_set} data/lang_test${decode_suffix} "${src_dir}"
